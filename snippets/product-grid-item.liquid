@@ -39,7 +39,9 @@
           {% render 'image-size', product: product, img: url %}
         </a>
       </div>
-
+      {% if section.settings.product_badge_hide != true%}
+        {% render 'product-badges' with product as product, serial: serial %}
+      {% endif %}
       {% render 'product-label' with product as product, serial: serial %}
 
       {% comment %} Use for productGrid {% endcomment %}

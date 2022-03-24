@@ -1,3 +1,8 @@
 .side-bar-menu .jas-mb-style {
   right: unset;
 }
+
+.product-label--custom {
+  right: unset !important;
+  left: 0;
+}

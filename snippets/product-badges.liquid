@@ -1,0 +1,22 @@
+<!-- John Dev Edits ================================================== -->
+  {%- liquid
+    assign variant_quantity = product.selected_or_first_available_variant.inventory_quantity
+    assign badge = ""
+
+    if variant_quantity <= section.settings.product_badge_selling_fast and variant_quantity != 0
+        assign badge = section.settings.product_badge_selling_fast_text
+    elsif variant_quantity == 0
+        assign badge = section.settings.product_badge_coming_soon_text
+    else
+        assign badge = section.settings.product_badge_best_seller_text
+    endif
+    -%}
+  <div class="product-label product-label--custom" data-label-new-number="{{settings.product_show_badgeNew}}">
+      <strong class="label sale-label" {% if settings.enable_multilang %}data-translate="{{badge}}"{% endif %} >
+        {{badge}}
+      </strong>
+  </div>
+  
+  
+  
+  
