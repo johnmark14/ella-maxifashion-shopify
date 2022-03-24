@@ -31,6 +31,7 @@
   endif
 -%}
 
+<h1> tag {{ product.tags }}</h1>
 {% assign option_color_swatch = settings.option_color_swatch | downcase %}
 <div class="inner product-item{% if sold_out %} sold-out{% endif %}{% if on_sale %} on-sale{% endif %}" data-product-id="product-{{ product.id }}" data-json-product='{"id": {{product.id}},"handle": "{{product.handle}}","media": {{product.media | json}},"variants": {{ product.variants | json }}}'>
   <div class="inner-top">
