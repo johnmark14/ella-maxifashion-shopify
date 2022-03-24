@@ -1,0 +1,252 @@
+<style>
+    .wrapper-body-wrap.bordered{
+      border: 1px solid #222222;
+      padding: 60px 40px 25px 40px;
+    }
+     .types-list .row .item .banner-item:before{
+       content: "";
+       display: block;
+       position: absolute;
+       top: 25%;
+       bottom: 0;
+       left: 10%;
+       right: 10%;
+         background-color: #BDE9E0;
+     }
+    .types-list .row .item .banner-item .img-box {
+      position: relative;
+      height: initial;
+      padding-bottom: 20px;
+      margin: 15px;
+      margin-bottom: 20px;
+    }
+    .types-list .row .item .banner-item .img-box a{
+      border-radius: 0%;
+      background: unset;
+      position: relative;
+    }
+    .flex-column{
+        flex-direction: column;
+    }
+    .types-list .row .item .banner-item .img-box a img{
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 70px;
+    }
+  </style>
+  <style>
+  
+    /* The Modal (background) */
+    .c-modal {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 10; /* Sit on top */
+      padding-top: 100px; /* Location of the box */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgb(0,0,0); /* Fallback color */
+      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+    
+    /* Modal Content */
+    .c-modal-content {
+      position: relative;
+      background-color: #fefefe;
+      margin: auto;
+      padding: 0;
+      border: 1px solid #888;
+      max-width: 1024px;
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+      -webkit-animation-name: animatetop;
+      -webkit-animation-duration: 0.4s;
+      animation-name: animatetop;
+      animation-duration: 0.4s;
+      padding: 40px;
+    }
+    
+    /* Add Animation */
+    @-webkit-keyframes animatetop {
+      from {top:-300px; opacity:0} 
+      to {top:0; opacity:1}
+    }
+    
+    @keyframes animatetop {
+      from {top:-300px; opacity:0}
+      to {top:0; opacity:1}
+    }
+    
+    /* The Close Button */
+    .c-close {
+      color: #000;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    
+    .c-close:hover,
+    .c-close:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    
+    .c-modal-header {
+
+    }
+    
+  
+    .c-modal-footer {
+
+      color: white;
+    }
+
+    .c-modal-content table{
+      margin-top: 20px;
+    }
+    .c-modal-content table tr:first-child{
+        background: #a8d7ce !important;
+        font-weight: 600;
+    }
+    .c-modal-content table tr:nth-child(2n+1){
+        background: #ececec;
+    }
+    @media screen and (max-width: 640px) {
+        .c-modal {
+            padding-top: 0;
+            height: 100vh;
+            min-height: 100%;
+            overflow: scroll;
+        }
+        .c-close {
+            transform: translateX(10px) translateY(-15px);
+        }
+        .c-modal-content {
+            padding: 30px;
+        }
+    }
+    </style>
+
+    
+    
+   
+    <!-- The Modal -->
+    <div id="myModal" class="c-modal">
+    
+      <!-- Modal content -->
+      <div class="c-modal-content">
+        <div class="c-modal-header">
+          <span class="c-close">&times;</span>
+          <h2 class="text-center">
+            {{ section.settings.widget_title }}
+          </h2>
+        </div>
+        <div class="c-modal-body">
+            {{pages[section.settings.page].content}}
+        </div>
+      </div>
+    
+    </div>
+    
+    
+
+  <div class="wrapper-body-wrap section-wrap maxi-banners-list types-list" id="maxy-{{section.id}}" data-loader-script="{{ 'halo.slide-blog.js' | asset_url }}" style="max-width: 1220px!important;">
+      <div class="container wrapper-body-wrap bordered" style="padding: 40px 20px 5px 20px;">
+          {% if section.settings.widget_title != blank %}
+          <div class="maxi-title">   
+                  <h2 class="text-center" style="margin-bottom: 25px;">
+                      <span class="title"> 
+                          {{ section.settings.widget_title }}
+                      </span>
+                  </h2>
+                  {% if section.settings.widget_text != blank %}
+                    <p style="padding: 0 25px; text-align: center;">{{ section.settings.widget_text }}</p>
+                  {% endif %}
+          </div>
+          {% endif %}
+          <div class="banners-maxy types-banners" style="margin-bottom: 40px;">
+              <div class="row">
+                  <div class="col-12" style="padding-top: 30px;">
+                      <span id="myBtn" class="m-auto maxi-button d-flex flex-center" style="cursor: pointer;">
+                          <span>{{section.settings.button-label}}</span>
+                          <svg width="42" height="9" viewBox="0 0 42 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M32.5 0L41.5 4.5L32.5 9V5H0.5V4H32.5V0Z" fill="white"></path>
+                          </svg>
+                      </span>
+                  </div>
+              </div>       
+          </div>
+      </div>
+  </div>
+  <script>
+    // Get the modal
+    var modal = document.getElementById("myModal");
+    
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+    
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("c-close")[0];
+    
+    // When the user clicks the button, open the modal 
+    btn.onclick = function() {
+      modal.style.display = "block";
+      const body = document.querySelector("body");
+      body.classList.add('ov-hidden');
+    }
+    
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+      modal.style.display = "none";
+      const body = document.querySelector("body");
+      body.classList.remove('ov-hidden');
+    }
+    
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+        body.classList.remove('ov-hidden');
+      }
+    }
+    </script>
+  
+  {% schema %}
+      {
+          "name": "Page content",
+          "class": "home-types-maxi",
+          "settings": [
+              {
+                  "type": "text",
+                  "id": "widget_title",
+                  "label": "Title",
+                  "default": "Title"
+              },
+              {
+                "type": "textarea",
+                "id": "widget_text",
+                "label": "Text",
+                "default": "Text"
+              },
+              {
+                "type": "page",
+                "id": "page",
+                "label": "Choose Page"
+              },
+              {
+                  "type": "text",
+                  "id": "button-label",
+                  "label": "Button label",
+                  "default": "Повече за видовете тяло"
+              }   	
+          ],
+          "presets": [
+            {
+                "name": "Page content",
+                "category": "text"
+            }
+          ]
+      }
+  {% endschema %}

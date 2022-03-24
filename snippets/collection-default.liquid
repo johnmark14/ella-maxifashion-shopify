@@ -1,0 +1,42 @@
+<div class="collection-template collection-template-default">
+  <div class="container wrapper-body-wrap">
+    {%comment%}{% render 'breadcrumb' %}{%endcomment%}
+    {% render 'collection-header' %}
+    <div class="halo-collection-content">
+      <div class="row">
+        {% render 'sidebar-filter' %}
+        {% render 'collection-template-default' %}
+      </div>
+    </div>   
+  </div>
+</div>
+<script>
+  function refinedCounter(){
+    const refined = document.querySelectorAll(".refined li");
+    const counter = document.querySelector(".filters-counter");
+    if(refined.length > 0){
+      counter.classList.add('active');
+      counter.innerHTML = refined.length;
+    } else {
+      counter.classList.remove('active');
+    }
+  }
+  refinedCounter();
+  const config = { attributes: true, childList: true, subtree: true };
+
+  // Callback function to execute when mutations are observed
+  const callback = function (mutationsList, observer) {
+    // Use traditional 'for loops' for IE 11
+    for (const mutation of mutationsList) {
+      if (mutation.type === "childList") {
+        refinedCounter();
+      }
+    }
+  };
+
+  // Create an observer instance linked to the callback function
+  const observer = new MutationObserver(callback);
+  var targetNode = $(".refined-widgets")[0];
+  // Start observing the target node for configured mutations
+  observer.observe(targetNode, config);
+</script>

@@ -1,0 +1,319 @@
+<div class="wrapper-body-wrap section-wrap" id="maxy-{{section.id}}" data-loader-script="{{ 'halo.slide-blog.js' | asset_url }}">
+    <div class="container wrapper-body-wrap">
+            <div class="row home-main">
+                 <div class="col-sm-6 pr-40">
+                   <div class="item-bg">
+                     <a class="maxi-link" title="{{section.settings.widget_title-1}}" href="{{section.settings.link-1}}"></a>
+                     <div class="bg meta">
+                       <h2 class="maxi-title">{{ section.settings.widget_title-1 }}</h2>
+                       <p>{{section.settings.widget_text-1}}</p>
+                       <span class="maxi-button just-text d-flex">
+                         <span>{{section.settings.link-label-1}}</span>
+                         <svg width="42" height="9" viewBox="0 0 42 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                           <path d="M32.5 0L41.5 4.5L32.5 9V5H0.5V4H32.5V0Z" fill="#000"/>
+                         </svg>
+                        </span>
+                     </div>
+                     {%- assign img_url = section.settings.image-1 | img_url: 'original' -%}
+                     <div class="img-holder portrait">
+                   	  <img data-src="{{ img_url }}" alt="{{ block.settings.image-1.alt | default: shop.name }}" itemprop="logo"
+                                    class="lazyload " data-sizes="auto">
+                      </div>
+                   </div>
+                   <div class="item-border">
+                    <a class="maxi-link" title="{{section.settings.link-label-3}}" href="{{section.settings.link-3}}"></a>
+                     <div class="meta">
+                       <h2 class="maxi-title">{{ section.settings.widget_title-3 }}</h2>
+                       <p>{{section.settings.widget_text-3}}</p>
+                       <span class="maxi-button just-text d-flex">
+                         <span>{{section.settings.link-label-3}}</span>
+                         <svg width="42" height="9" viewBox="0 0 42 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                           <path d="M32.5 0L41.5 4.5L32.5 9V5H0.5V4H32.5V0Z" fill="#000"/>
+                         </svg>
+                        </span>
+                     </div>
+                     {%- assign img_url = section.settings.image-3 | img_url: 'original' -%}
+                     <div class="img-holder portrait">
+                   	  <img data-src="{{ img_url }}" alt="{{ block.settings.image-3.alt | default: shop.name }}" itemprop="logo"
+                                    class="lazyload " data-sizes="auto">
+                     </div>
+                   </div>
+                   <div class="link-block">
+                    <a class="maxi-link" title="{{section.settings.link-label-5}}" href="{{section.settings.link-5}}"></a>
+                     <div class="bordered d-flex flex-column flex-center">
+                        <h2 class="maxi-title text-center">{{ section.settings.widget_title-5 }}</h2>
+                        <span class="maxi-button just-text white d-flex"">
+                           <span>{{section.settings.link-label-5}}</span>
+                           <svg width="42" height="9" viewBox="0 0 42 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                             <path d="M32.5 0L41.5 4.5L32.5 9V5H0.5V4H32.5V0Z" fill="#fff"/>
+                           </svg>
+                          </span>
+                     </div>
+                   </div>
+              	 </div>
+              	<div class="col-sm-6">
+                  <div class="item-border">
+                     <a class="maxi-link" title="{{section.settings.link-label-2}}" href="{{section.settings.link-2}}"></a>
+                     <div class="meta">
+                       <h2 class="maxi-title">{{ section.settings.widget_title-2 }}</h2>
+                       <p>{{section.settings.widget_text-2}}</p>
+                       <span class="maxi-button just-text d-flex">
+                         <span>{{section.settings.link-label-2}}</span>
+                         <svg width="42" height="9" viewBox="0 0 42 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                           <path d="M32.5 0L41.5 4.5L32.5 9V5H0.5V4H32.5V0Z" fill="#000"/>
+                         </svg>
+                       </span>
+                     </div>
+                     {%- assign img_url = section.settings.image-2 | img_url: 'original' -%}
+                     <div class="img-holder square">
+                   	  <img data-src="{{ img_url }}" alt="{{ block.settings.image-2.alt | default: shop.name }}" itemprop="logo"
+                                    class="lazyload " data-sizes="auto">
+                      </div>
+                   </div>
+                  
+                    <div class="contact-form-maxi">
+                      <div class="bordered">
+                      <div class="row">
+                        <div class="col-12 mb-40">
+                          <h2 class="maxi-title text-center">{{section.settings.newsletter-text}}</h3>
+                        </div>
+                      </div>
+                      <div>
+                      {% form 'customer' %}
+                        {{ form.errors | default_errors }}
+                        {% if form.posted_successfully? %}
+                          <p class="form--success">{{section.settings.newsletter-thank-you}}</p>
+                        {% else %}
+                          <input type="hidden" name="contact[tags]" value="newsletter">
+                          <div class="input-group row d-flex flex-column">
+                            <div class="col-12 mb-20">
+                              <input type="email" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="{{section.settings.newsletter-placeholder}}" name="contact[email]" id="NewsletterEmail" class="" autocorrect="off" autocapitalize="off">
+                            </div>
+                            <div class="col-12 button-holder">
+                              <button type="submit" class="btn" name="commit" id="Subscribe">
+                                {{section.settings.newsletter-button-text}}
+                              </button>
+                            </div>
+                          </div>
+                        {% endif %}
+                      {% endform %}
+                      </div>
+                      </div>
+                    </div>
+                  
+                  <div class="item-bg">
+                    <a class="maxi-link" title="{{section.settings.link-label-4}}" href="{{section.settings.link-4}}"></a>
+                    <div class="bg meta">
+                      <h2 class="maxi-title">{{ section.settings.widget_title-4 }}</h2>
+                      <p>{{section.settings.widget_text-4}}</p>
+                      <span class="maxi-button just-text d-flex">
+                        <span>{{section.settings.link-label-4}}</span>
+                        <svg width="42" height="9" viewBox="0 0 42 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M32.5 0L41.5 4.5L32.5 9V5H0.5V4H32.5V0Z" fill="#000"/>
+                        </svg>
+                      </span>
+                    </div>
+                    {%- assign img_url = section.settings.image-4 | img_url: 'original' -%}
+                    <div class="img-holder portrait">
+                      <img data-src="{{ img_url }}" alt="{{ block.settings.image-4.alt | default: shop.name }}" itemprop="logo"
+                         class="lazyload " data-sizes="auto">
+                    </div>
+                  </div>
+              	</div>
+            </div>       
+        </div>
+
+</div>
+
+
+{% schema %}
+    {
+        "name": "Maxi: Home block",
+        "class": "home-block",
+        "settings": [
+			{
+              "type": "header",
+              "content": "Item #1"
+            },
+            {
+              "type": "text",
+              "id": "widget_title-1",
+              "label": "Item #1 Title",
+              "default": "Item #1 Title"
+            },
+            {
+              "type": "textarea",
+              "id": "widget_text-1",
+              "label": "Item #1 short text",
+              "default": "Put some text to this block"
+            },
+ 			      {
+              "type": "image_picker",
+              "id": "image-1",
+              "label": "Item #1 Image",
+              "info": "Use the pictures with the portrait proportions"
+            }, 
+            {
+              "type": "text",
+              "id": "link-label-1",
+              "label": "Item #1 Link Title",
+              "default": "Link Title"
+            },
+            {
+              "type": "url",
+              "id": "link-1",
+              "label": "Item #1 Link"
+            },
+			      {
+              "type": "header",
+              "content": "Item #2"
+            },
+            {
+              "type": "text",
+              "id": "widget_title-2",
+              "label": "Item #2 Title",
+              "default": "Item #2 Title"
+            },
+            {
+              "type": "textarea",
+              "id": "widget_text-2",
+              "label": "Item #2 short text",
+              "default": "Put some text to this block"
+            },
+ 			      {
+              "type": "image_picker",
+              "id": "image-2",
+              "label": "Item #2 Image",
+              "info": "Use the pictures with the square proportions"
+            }, 
+            {
+              "type": "text",
+              "id": "link-label-2",
+              "label": "Item #2 Link Title",
+              "default": "Link Title"
+            },
+            {
+              "type": "url",
+              "id": "link-2",
+              "label": "Item #2 Link"
+            },
+			      {
+              "type": "header",
+              "content": "Item #3"
+            },
+            {
+              "type": "text",
+              "id": "widget_title-3",
+              "label": "Item #3 Title",
+              "default": "Item #3 Title"
+            },
+            {
+              "type": "textarea",
+              "id": "widget_text-3",
+              "label": "Item #3 short text",
+              "default": "Put some text to this block"
+            },
+ 			      {
+              "type": "image_picker",
+              "id": "image-3",
+              "label": "Item #3 Image",
+              "info": "Use the pictures with the portrait proportions"
+            }, 
+            {
+              "type": "text",
+              "id": "link-label-3",
+              "label": "Item #3 Link Title",
+              "default": "Link Title"
+            },
+            {
+              "type": "url",
+              "id": "link-3",
+              "label": "Item #3 Link"
+            },
+			      {
+              "type": "header",
+              "content": "Item #4"
+            },
+            {
+              "type": "text",
+              "id": "widget_title-4",
+              "label": "Item #4 Title",
+              "default": "Item #4 Title"
+            },
+            {
+              "type": "textarea",
+              "id": "widget_text-4",
+              "label": "Item #4 short text",
+              "default": "Put some text to this block"
+            },
+ 			      {
+              "type": "image_picker",
+              "id": "image-4",
+              "label": "Item #4 Image",
+              "info": "Use the pictures with the portrait proportions"
+            }, 
+            {
+              "type": "text",
+              "id": "link-label-4",
+              "label": "Item #4 Link Title",
+              "default": "Link Title"
+            },
+            {
+              "type": "url",
+              "id": "link-4",
+              "label": "Item #4 Link"
+            },
+			      {
+              "type": "header",
+              "content": "Item #5"
+            },
+            {
+              "type": "text",
+              "id": "widget_title-5",
+              "label": "Item #5 Title",
+              "default": "Item #5 Title"
+            }, 
+            {
+              "type": "text",
+              "id": "link-label-5",
+              "label": "Item #5 Link Title",
+              "default": "Link Title"
+            },
+            {
+              "type": "url",
+              "id": "link-5",
+              "label": "Item #5 Link"
+            },
+            {
+              "type": "header",
+              "content": "Newsletter form"
+            },
+            {
+              "type": "text",
+              "id": "newsletter-text",
+              "label": "Newsletter text"
+            },
+            {
+              "type": "text",
+              "id": "newsletter-thank-you",
+              "label": "Newsletter thank you msg"
+            },
+            {
+              "type": "text",
+              "id": "newsletter-placeholder",
+              "label": "Newsletter input placeholder"
+            },
+            {
+              "type": "text",
+              "id": "newsletter-button-text",
+              "label": "Newsletter button text"
+            }
+        ],
+        "presets": [
+            {
+                "name": "Maxi: Home block",
+                "category": "text"
+            }
+        ]
+    }
+{% endschema %}

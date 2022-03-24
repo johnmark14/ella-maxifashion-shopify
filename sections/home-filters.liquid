@@ -1,0 +1,72 @@
+<div class="size-filter">
+      <div class="filters-meta">
+          <h2><span>{{section.settings.block-heading}}</span></h2>
+          <p>{{section.settings.caption}}</p>
+            <a href="{{section.settings.collection}}" class="maxi-button just-text d-flex">
+                <span>{{section.settings.btn-label}}</span>
+                <svg width="42" height="9" viewBox="0 0 42 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M32.5 0L41.5 4.5L32.5 9V5H0.5V4H32.5V0Z" fill="#fff"></path>
+                </svg>
+            </a>
+      </div>
+      <div class="size-filter-items">
+        {% for block in section.blocks %}
+            {% if block.type == "size-group" %}
+            {% assign sizes = block.settings.sizes | split: "," %}
+            <div class="items-group">
+                {% for size in sizes %}
+                 <a data-size-id="{{size}}" href="{{section.settings.collection}}?filter.v.option.размер={{size}}">{{size}}</a>
+                {% endfor %}
+            </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+  </div>
+  {% schema %}
+  {
+    "name": "Filters block",
+    "class": "filters-block-wrapper",
+    "settings": [   
+        {
+            "type": "text",
+            "id": "block-heading",
+            "label": "Block heading"
+        },
+        {
+            "type": "textarea",
+            "id": "caption",
+            "label": "Black caption"
+        },
+        {
+            "type": "url",
+            "id": "collection",
+            "label": "Collection link"
+        },
+        {
+            "type": "text",
+            "id": "btn-label",
+            "label": "Collection link label"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "size-group",
+            "name": "Size group",
+            "settings": [
+                {
+                    "type": "textarea",
+                    "id": "sizes",
+                    "label": "Sizes",
+                    "info": "example: 44,46,48..."
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Filters block",
+            "category": "Filters"
+        }
+    ]
+  }
+{% endschema %}

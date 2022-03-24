@@ -1,0 +1,1067 @@
+{% if template.suffix == 'right-sidebar' %}
+	{% render 'collection-right-sidebar' %}
+{% elsif template.suffix == 'fullwidth' %}
+	{% render 'collection-fullwidth' %}
+{% elsif template.suffix == 'with-banner' %}
+	{% render 'collection-with-banner' %}
+{% elsif template.suffix == 'mansory' %}
+	{% render 'collection-mansory' %}
+{% elsif template.suffix == 'express-order' %}
+	{% render 'collection-express-order' %}
+{% elsif template.suffix == 'no-sidebar' %}
+	{% render 'collection-no-sidebar' %}
+{% elsif template.suffix == 'skin-1' %}
+	{% render 'collection-skin-1' %}
+{% elsif template.suffix == 'supermarket' %}
+	{% render 'collection-supermarket' %}
+{% else %}
+	{% if settings.category_layout == "default" %} 
+		{% render 'collection-default' %}
+	{% elsif settings.category_layout == "right_sidebar" %}
+		{% render 'collection-right-sidebar' %}
+	{% elsif settings.category_layout == "full_with" %}
+		{% render 'collection-fullwidth' %}
+	{% elsif settings.category_layout == "with_banner" %}
+		{% render 'collection-with-banner' %}
+	{% elsif settings.category_layout == "mansory" %}
+		{% render 'collection-mansory' %}
+	{% elsif settings.category_layout == "express_order" %}
+		{% render 'collection-express-order' %}
+	{% elsif settings.category_layout == "no_sidebar" %}
+		{% render 'collection-no-sidebar' %}
+	{% elsif settings.category_layout == "skin_1" %}
+		{% render 'collection-skin-1' %}
+	{% elsif settings.category_layout == "supermarket" %}
+		{% render 'collection-supermarket' %}
+	{% endif %}
+{% endif %}
+<style>
+  .collection-template .padding .infinite-scrolling .btn {
+    background-color: {{ section.settings.bg_color_button_more }};
+    border-color: {{ section.settings.border_color_button_more }};
+    color: {{ section.settings.color_button_more }};
+  }
+</style>
+<style>
+	/* The Modal (background) */
+  #type-filter-btn{
+	cursor: pointer;
+  }
+  .popup {
+	display: none;
+	position: fixed;
+	z-index: 10;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: #fefefe; 
+  }
+  
+  /* Modal Content/Box */
+  .popup-content {
+	background-color: #fefefe;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translateX(-50%) translateY(-50%);
+	padding: 20px;
+	width: 640px;
+	max-width: 90%;
+  }
+  
+  /* The Close Button */
+  .close {
+	color: #222;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+  }
+  
+  .invise{
+	display: none;
+  }
+  .popup-content .type > div{
+	  padding: 2px 0;
+  }
+  .popup-content .type > div a{
+	display: flex;
+	align-items: center;
+	justify-content: start;
+	padding: 10px;
+	background: #fff;
+	border: 1px solid #dedede;
+	border-radius: 1px;
+	padding-right: 25px;
+  }
+  .popup-content .type > div a .h-font{
+	  font-size: 18px;
+	  font-weight: 600;
+  }
+  .popup-content .type > div a .text{
+	  display: flex;
+	  flex-direction: column;
+	  padding-left: 10px;
+  }
+  .popup-content .type > div a .text .desc{
+	font-size: 14px;
+    line-height: 1.2;
+    margin-top: 5px;
+	margin-bottom: 5px;
+  }
+  </style>
+  <div id="type-popup" class="popup">
+  
+	<!-- Modal content -->
+	<div class="popup-content">
+	  <span class="close">&times;</span>
+	  <h2 class="text-center">
+		<span class="h-font title" style="font-size: 24px; font-weight: 600;"> 
+			{{section.settings.p-heading}}
+		</span>
+	  </h2>
+	  <div class="type">
+		<div>
+			<a href="{{section.settings.type-a-url}}">
+				<img src="{{ section.settings.type-a-icon | img_url: 'small' }}" />
+				<span class="text">
+					<span>
+						<span class="h-font">{{ section.settings.type-a-text }}</span>
+						<svg class="initial" width="26" height="9" viewBox="0 0 42 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M32.5 0L41.5 4.5L32.5 9V5H0.5V4H32.5V0Z" fill="#000"></path>
+						</svg>
+					</span>
+					<span class="desc">{{ section.settings.type-a-desc }}</span>
+				</span>
+			</a>
+		</div>
+		<div>
+			<a href="{{section.settings.type-h-url}}">
+				<img src="{{ section.settings.type-h-icon | img_url: 'small' }}" />
+				<span class="text">
+					<span>
+						<span class="h-font">{{ section.settings.type-h-text }}</span>
+						<svg class="initial" width="26" height="9" viewBox="0 0 42 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M32.5 0L41.5 4.5L32.5 9V5H0.5V4H32.5V0Z" fill="#000"></path>
+						</svg>
+					</span>
+					<span class="desc">{{ section.settings.type-h-desc }}</span>
+				</span>
+			</a>
+		</div>
+		<div>
+			<a href="{{section.settings.type-o-url}}">
+				<img src="{{ section.settings.type-o-icon | img_url: 'small' }}" />
+				<span class="text">
+					<span>
+						<span class="h-font">{{ section.settings.type-o-text }}</span>
+						<svg class="initial" width="26" height="9" viewBox="0 0 42 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M32.5 0L41.5 4.5L32.5 9V5H0.5V4H32.5V0Z" fill="#000"></path>
+						</svg>
+					</span>
+					<span class="desc">{{ section.settings.type-o-desc }}</span>
+				</span>
+			</a>
+		</div>
+		<div>
+			<a href="{{section.settings.type-v-url}}">
+				<img src="{{ section.settings.type-v-icon | img_url: 'small' }}" />
+				<span class="text">
+					<span>
+						<span class="h-font">{{ section.settings.type-v-text }}</span>
+						<svg class="initial" width="26" height="9" viewBox="0 0 42 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M32.5 0L41.5 4.5L32.5 9V5H0.5V4H32.5V0Z" fill="#000"></path>
+						</svg>
+					</span>
+					<span class="desc">{{ section.settings.type-v-desc }}</span>
+				</span>
+			</a>
+		</div>
+		<div>
+			<a href="{{section.settings.type-x-url}}">
+				<img src="{{ section.settings.type-x-icon | img_url: 'small' }}" />
+				<span class="text">
+					<span class="">
+						<span class="h-font">{{ section.settings.type-x-text }}</span>
+						<svg class="initial" width="26" height="9" viewBox="0 0 42 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M32.5 0L41.5 4.5L32.5 9V5H0.5V4H32.5V0Z" fill="#000"></path>
+						</svg>
+					</span>
+					<span class="desc">{{ section.settings.type-x-desc }}</span>
+				</span>
+			</a>
+		</div>
+	  </div>
+	</div>
+  
+  </div>
+<script>
+	var popup = document.getElementById("type-popup");
+	var btn = document.getElementById("type-filter-btn");
+	var span = document.querySelector(".popup-content .close");
+	btn.onclick = function() {
+		popup.style.display = "block";
+	}
+	span.onclick = function() {
+		popup.style.display = "none";
+	}
+
+	window.onclick = function(event) {
+		if (event.target == popup) {
+			popup.style.display = "none";
+		}
+	}
+</script>
+{% schema %}
+  {
+    "name": "Main Collection",
+    "settings": [
+	{
+		"type": "header",
+		"content": "Figure type filter",
+		"info": "Figure type filter popup settings"
+	},
+	{
+		"type": "text",
+		"id": "p-heading",
+		"label": "Heading",
+		"default": "Пазарувайте по типа на Вашата фигура"
+	},
+	{
+		"type": "header",
+		"content": "Type A"
+	},
+	{
+		"type": "text",
+		"id": "type-a-text",
+		"label": "Type A label",
+		"default": "Фигура тип А"
+	},
+	{
+		"type": "text",
+		"id": "type-a-desc",
+		"label": "Type A description"
+	},
+	{
+		"type": "url",
+		"id": "type-a-url",
+		"label": "Type A url"
+	},
+	{
+		"type": "image_picker",
+		"id": "type-a-icon",
+		"label": "Type A icon"
+	},
+	{
+		"type": "header",
+		"content": "Type H"
+	},
+	{
+		"type": "text",
+		"id": "type-h-text",
+		"label": "Type H label",
+		"default": "Фигура тип H"
+	},
+	{
+		"type": "text",
+		"id": "type-h-desc",
+		"label": "Type H description"
+	},
+	{
+		"type": "url",
+		"id": "type-h-url",
+		"label": "Type H url"
+	},
+	{
+		"type": "image_picker",
+		"id": "type-h-icon",
+		"label": "Type H icon"
+	},
+	{
+		"type": "header",
+		"content": "Type O"
+	},
+	{
+		"type": "text",
+		"id": "type-o-text",
+		"label": "Type O label",
+		"default": "Фигура тип O"
+	},
+	{
+		"type": "text",
+		"id": "type-o-desc",
+		"label": "Type O description"
+	},
+	{
+		"type": "url",
+		"id": "type-o-url",
+		"label": "Type O url"
+	},
+	{
+		"type": "image_picker",
+		"id": "type-o-icon",
+		"label": "Type O icon"
+	},
+	{
+		"type": "header",
+		"content": "Type V"
+	},
+	{
+		"type": "text",
+		"id": "type-v-text",
+		"label": "Type V label",
+		"default": "Фигура тип V"
+	},
+	{
+		"type": "text",
+		"id": "type-v-desc",
+		"label": "Type V description"
+	},
+	{
+		"type": "url",
+		"id": "type-v-url",
+		"label": "Type V url"
+	},
+	{
+		"type": "image_picker",
+		"id": "type-v-icon",
+		"label": "Type V icon"
+	},
+	{
+		"type": "header",
+		"content": "Type X"
+	},
+	{
+		"type": "text",
+		"id": "type-x-text",
+		"label": "Type X label",
+		"default": "Фигура тип X"
+	},
+	{
+		"type": "text",
+		"id": "type-x-desc",
+		"label": "Type X description"
+	},
+	{
+		"type": "url",
+		"id": "type-x-url",
+		"label": "Type X url"
+	},
+	{
+		"type": "image_picker",
+		"id": "type-x-icon",
+		"label": "Type X icon"
+	},
+	{
+		"type": "header",
+		"content": "Collection Content"
+	},
+	{
+		"type": "textarea",
+		"id": "filter-labels",
+		"label": "Filter translations"
+	},
+	{
+		"type": "checkbox",
+		"id": "limited_view",
+		"label": "Enable Limited View",
+		"default": true
+	},
+	{
+		"type": "checkbox",
+		"id": "view_as_enable",
+		"label": "Enable View As",
+		"default": true
+	},
+	{
+		"type": "checkbox",
+		"id": "sort_enable",
+		"label": "Enable sorting",
+		"default": true
+	},
+	{
+		"type": "paragraph",
+		"content": "(3 above settings are not applied for Express Order page)"
+	},
+	{
+		"type": "select",
+		"id": "collection_results_per_row",
+		"label": "Products per row (grid only)",
+		"default": "4",
+		"options": [
+		  {
+		    "value": "1",
+		    "label": "List"
+		  },
+		  {
+		    "value": "2",
+		    "label": "2"
+		  },
+		  {
+		    "value": "3",
+		    "label": "3"
+		  },
+		  {
+		    "value": "4",
+		    "label": "4"
+		  },
+		  {
+		    "value": "5",
+		    "label": "5"
+		  }
+		]
+	},
+	{
+		"type": "select",
+		"id": "collection_results_per_page",
+		"label": "Products per page",
+		"default": "24",
+		"options": [
+		  {
+		    "value": "12",
+		    "label": "12"
+		  },
+		  {
+		    "value": "16",
+		    "label": "16"
+		  },
+		  {
+		    "value": "20",
+		    "label": "20"
+		  },
+		  {
+		    "value": "24",
+		    "label": "24"
+		  },
+		  {
+		    "value": "30",
+		    "label": "30"
+		  },
+		  {
+		    "value": "50",
+		    "label": "50"
+		  }
+		]
+	},
+    {
+      "type" : "color",
+      "id" : "color_button_more",
+      "label" : "Color Button",
+      "default" : "#ffffff"
+    },
+    {
+      "type" : "color",
+      "id" : "bg_color_button_more",
+      "label" : "Background Color Button",
+      "default" : "#ba7a2d"
+    },
+    {
+      "type" : "color",
+      "id" : "border_color_button_more",
+      "label" : "Border Color Button",
+      "default" : "#ba7a2d"
+    },
+	{
+		"type": "header",
+		"content": "Countdown"
+	},
+	{
+	    "type": "checkbox",
+	    "id": "show_countdown",
+	    "label": "Enable Countdown",
+	    "default": false
+	},
+	{
+	    "type": "text",
+	    "id": "text_countdown",
+	    "label": "Text Countdown",
+	    "default": "End ins:",
+	    "info": "(Use for Layout Collection Page Mansory)"
+	},
+	{
+	    "type": "checkbox",
+	    "id": "show_pro_des",
+	    "label": "Short Description for Product Grid",
+	    "default": false,
+	    "info": "(Use for Layout Collection Page Mansory)"
+	},
+	{
+	  	"type": "header",
+	  	"content": "Product Banner In Collection ",
+		"info": "(Use for Layout Collection With Banner or Collection No Sidebar)"
+	},
+	{
+		"type" : "checkbox",
+		"id" : "show_banner",
+		"label" : "Enable Banner",
+		"default" : false
+	},
+	{
+	  	"type" : "checkbox",
+	  	"id" : "show_banner_1",
+	  	"label" : "Enable Banner #1",
+	  	"default" : true
+	},	  
+	{
+		"type" : "image_picker",
+		"id" : "img_banner1",
+		"label" : "Image 1"
+	},
+	{
+		"type": "url",
+		"id": "link_banner_1",
+		"label": "Link image 1"
+	},
+	{
+		"type" : "checkbox",
+		"id" : "show_banner_2",
+		"label" : "Enable Banner #2",
+		"default" : true
+	},	  
+	{
+		"type" : "image_picker",
+		"id" : "img_banner2",
+		"label" : "Image 2"
+	},
+	{
+		"type": "url",
+		"id": "link_banner_2",
+		"label": "Link image 2"
+	},
+	{
+		"type" : "checkbox",
+		"id" : "show_banner_3",
+		"label" : "Enable Banner #3",
+		"default" : true
+	},	  
+	{
+		"type" : "image_picker",
+		"id" : "img_banner3",
+		"label" : "Image 3"
+	},
+	{
+		"type": "url",
+		"id": "link_banner_3",
+		"label": "Link image 3"
+	},
+	{
+		"type" : "checkbox",
+		"id" : "show_banner_4",
+		"label" : "Enable Banner #4",
+		"default" : true
+	},	  
+	{
+		"type" : "image_picker",
+		"id" : "img_banner4",
+		"label" : "Image 4"
+	},
+	{
+		"type": "url",
+		"id": "link_banner_4",
+		"label": "Link image "
+	},
+	{
+		"type": "header",
+		"content": "Settings Header Text",
+		"info": "(Use for Layout Collection Express order)"
+	},
+	{
+		"type" : "text",
+		"id" : "pro_image",
+		"label" : "Image",
+		"default" : "&nbsp;"
+	}, 
+	{
+		"type" : "text",
+		"id" : "pro_name",
+		"label" : "Product Name",
+		"default" : "Product"
+	},
+	{
+		"type" : "text",
+		"id" : "pro_price",
+		"label" : "Product Price",
+		"default" : "Price"
+	},
+	{
+		"type" : "text",
+		"id" : "pro_quantity",
+		"label" : "Product Quantity",
+		"default" : "Qty"
+	},
+	{
+		"type" : "text",
+		"id" : "pro_variant_options",
+		"label" : "Product Variant Options",
+		"default" : "Options"
+	},
+	{
+		"type": "paragraph",
+		"content": "The settings of 4 buttons are for Layout: Express Order"
+	},
+	{
+		"type": "header",
+		"content": "Button 1",
+		"info": "Use for Show Variants Button"
+	},
+	{
+		"type": "color",
+		"id": "btn_1_bg_color",
+		"label": "Background Color",
+		"default": "#232323",
+		"info": "Default Value: #232323"
+	},
+	{
+		"type": "color",
+		"id": "btn_1_border_color",
+		"label": "Border Color",
+		"default": "#232323",
+		"info": "Default Value: #232323"
+	},
+	{
+		"type": "color",
+		"id": "btn_1_text_color",
+		"label": "Text Color",
+		"default": "#fff",
+		"info": "Default Value: #fff"
+	},
+	{
+		"type": "header",
+		"content": "Button 2",
+		"info": "Use for Add To Cart Button"
+	},
+	{
+		"type": "color",
+		"id": "btn_2_bg_color",
+		"label": "Background Color",
+		"default": "#fff",
+		"info": "Default Value: #fff"
+	},
+	{
+		"type": "color",
+		"id": "btn_2_border_color",
+		"label": "Border Color",
+		"default": "#323232",
+		"info": "Default Value: #323232"
+	},
+	{
+		"type": "color",
+		"id": "btn_2_text_color",
+		"label": "Text Color",
+		"default": "#232323",
+		"info": "Default Value: #232323"
+	},
+	{
+		"type": "header",
+		"content": "Button 3",
+		"info": "Use for Hide Variants Button and Show Variants when hover"
+	},
+	{
+		"type": "color",
+		"id": "btn_3_bg_color",
+		"label": "Background Color",
+		"default": "#fff",
+		"info": "Default Value: #fff"
+	},
+	{
+		"type": "color",
+		"id": "btn_3_border_color",
+		"label": "Border Color",
+		"default": "#e6e6e6",
+		"info": "Default Value: #e6e6e6"
+	},
+	{
+		"type": "color",
+		"id": "btn_3_text_color",
+		"label": "Text Color",
+		"default": "#232323",
+		"info": "Default Value: #232323"
+	},
+	{
+		"type": "header",
+		"content": "Button 4",
+		"info": "Use for Add More... Button and Add To Cart when hover"
+	},
+	{
+		"type": "color",
+		"id": "btn_4_bg_color",
+		"label": "Background Color",
+		"default": "#69c69c",
+		"info": "Default Value: #69c69c"
+	},
+	{
+		"type": "color",
+		"id": "btn_4_border_color",
+		"label": "Border Color",
+		"default": "#69c69c",
+		"info": "Default Value: #69c69c"
+	},
+	{
+		"type": "color",
+		"id": "btn_4_text_color",
+		"label": "Text Color",
+		"default": "#fff",
+		"info": "Default Value: #fff"
+	}
+	],
+    "blocks": [
+        {
+            "type": "sidebar",
+            "name": "Sidebar",
+            "settings": [
+            	{
+					"type": "paragraph",
+					"content": "The settings of Sidebar only work for Collections/Category pages which have Sidebar including:"
+				},
+				{
+					"type": "paragraph",
+					"content": "- Category Default, Full Width, Mansory, Right Sidebar, Express Order, With Banner ADV, 1170, Supermarket."
+				},
+                {
+	                "type": "checkbox",
+	                "id": "display_sidebar",
+	                "label": "Enable Sidebar",
+	                "default": true
+	            },
+	            {
+	                "type": "select",
+	                "id": "sidebar_style",
+	                "label": "Sidebar Style",
+	                "options": [
+	                    {
+	                        "value": "style_1",
+	                        "label": "Style 1"
+	                    },
+	                    {
+	                        "value": "style_2",
+	                        "label": "Style 2"
+	                    }          
+	                ],
+	                "default": "style_1",
+	                "info": "Default: Style 1"
+	            },
+	            {
+	                "type": "select",
+	                "id": "show_sidebar",
+	                "label": "Show Sidebar on:",
+	                "options": [
+	                    {
+	                        "value": "left",
+	                        "label": "Left"
+	                    },
+	                    {
+	                        "value": "right",
+	                        "label": "Right"
+	                    }          
+	                ],
+	                "default": "left",
+	                "info": "Default: Left"
+	            },
+	            {
+	                "type": "header",
+	                "content": "Style settings for filter options"
+	            },
+	            {
+	                "type": "text",
+	                "id": "style_option_color",
+	                "label": "Use Swatches for Color",
+	                "default": "Color",
+	                "info": "Enter option name to activate Swatches style for Color option"
+	            },
+	            {
+	                "type": "text",
+	                "id": "style_option_size",
+	                "label": "Use Swatches for Size",
+	                "default": "Size",
+	                "info": "Enter option name to activate Swatches style for Size option"
+	            },
+	            {
+	                "type": "header",
+	                "content": "Collapse filter at"
+	            },
+	            {
+	                "type": "number",
+	                "id": "number_collapse",
+	                "label": "Number",
+	                "default": 5
+	            },
+	            {
+	                "type": "header",
+	                "content": "Categories"
+	            },
+	            {
+	                "type": "checkbox",
+	                "id": "enable_categories",
+	                "label": "Enable",
+	                "default": true
+	            },
+	            {
+	                "type": "text",
+	                "id": "title_categories",
+	                "label": "Title"
+	            },
+	            {
+	                "type": "radio",
+	                "id": "style_categories",
+	                "label": "Show all \/ Only a few categories",
+	                "options": [
+	                    {
+	                        "value": "style_show_all",
+	                        "label": "Show all"
+	                    },
+	                    {
+	                        "value": "style_main_menu",
+	                        "label": "Get Categories From Main Menu"
+	                    },
+	                    {
+	                        "value": "style_little",
+	                        "label": "Only a few categories"
+	                    }                    
+	                ]
+	            },
+	            {
+	                "type": "link_list",
+	                "id": "link_list",
+	                "label": "Choose a menu",
+	                "default": "main-menu"
+	            },
+	            {
+	                "type": "header",
+	                "content": "Product Slider"
+	            },
+	            {
+	                "type": "checkbox",
+	                "id": "enable_product",
+	                "label": "Enable",
+	                "default": true
+	            },
+	            {
+	                "type": "text",
+	                "id": "title_product",
+	                "label": "Title"
+	            },
+	            {
+	                "id": "collection",
+	                "type": "collection",
+	                "label": "Collection"
+	            },
+	            {
+	                "type": "text",
+	                "id": "limit",
+	                "label": "Number of products to show",
+	                "default": "8"
+	            },       
+	            {
+	                "type": "header",
+	                "content": "Block Image 1"
+	            },
+	            {
+	                "type": "checkbox",
+	                "id": "enable_img_1",
+	                "label": "Enable",
+	                "default": true
+	            },
+	            {
+	                "type": "image_picker",
+	                "id": "image_img_1",
+	                "label": "Image"
+	            },
+	            {
+	                "type": "url",
+	                "id": "link_img_1",
+	                "label": "Link Image",
+	                "info": "Optional"
+	            },
+
+	            {
+	                "type": "header",
+	                "content": "Block Image 2"
+	            },
+	            {
+	                "type": "checkbox",
+	                "id": "enable_img_2",
+	                "label": "Enable",
+	                "default": true
+	            },
+	            {
+	                "type": "image_picker",
+	                "id": "image_img_2",
+	                "label": "Image"
+	            },
+	            {
+	                "type": "url",
+	                "id": "link_img_2",
+	                "label": "Link Image",
+	                "info": "Optional"
+	            },
+	            {
+	                "type": "header",
+	                "content": "Custom Block"
+	            },
+	            {
+	                "type": "checkbox",
+	                "id": "enable_custom_block",
+	                "label": "Enable",
+	                "default": true
+	            },
+	            {
+	                "type": "text",
+	                "id": "title_custom_block",
+	                "label": "Heading",
+	                "default": "Custom Block"
+	            },
+	            {
+	                "type": "richtext",
+	                "id": "quote_custom_block",
+	                "label": "Text",
+	                "default": "<p>Add customer reviews and testimonials to showcase your store’s happy customers.</p>"
+	            }
+            ]
+        },
+        {
+            "type": "header",
+            "name": "Collection Header",
+            "settings": [
+			    {
+			        "type": "checkbox",
+			        "id": "display_collection_image",
+			        "label": "Show collection image?",
+			        "default": true
+			    },
+			    {
+			        "type": "select",
+			        "id": "collection_header_layout",
+			        "label": "Layout Collection Header",
+			        "options": [
+			        {
+			            "value": "default",
+			            "label": "Default"
+			        },
+			        {
+			            "value": "full",
+			            "label": "Full Width"
+			        }],
+			        "default": "full",
+			        "info": "Default: Full Width"
+			    },
+			    {
+			        "type": "select",
+			        "id": "collection_header_style",
+			        "label": "Style Collection Header",
+			        "options": [
+			        {
+			            "value": "style_1",
+			            "label": "Style Default"
+			        },
+			        {
+			            "value": "style_2",
+			            "label": "Style 2"
+			        }],
+			        "default": "style_1",
+			        "info": "Default: Style Default"
+			    },
+			    {
+			        "type": "image_picker",
+			        "id": "collection_image",
+			        "label": "Image Category",
+			        "info": "This image will show up when you don't add image in Collections Description"
+			    },
+			    {
+			        "type": "checkbox",
+			        "id": "display_collection_des",
+			        "label": "Display Collections Description?",
+			        "default": true
+			    },
+			    {
+			        "type" : "color",
+			        "id" : "color_wrapper",
+			        "label" : "Color Wrapper",
+			        "default" : "#202020"
+			    },
+			    {
+			        "type" : "color",
+			        "id" : "color_wrapper_mb",
+			        "label" : "Color Wrapper Mobile",
+			        "default" : "#202020"
+			    },
+			    {
+			        "type" : "color",
+			        "id" : "bg_color_content",
+			        "label" : "Background color content",
+			        "default" : "#fff",
+			        "info": "This settings only use for Style 2"
+			    },
+			    {
+			        "type" : "color",
+			        "id" : "border_color_content",
+			        "label" : "Border color content",
+			        "default" : "#bcbcbc",
+			        "info": "This settings only use for Style 2"
+			    },
+			    {
+			        "type" : "text",
+			        "id" : "height_img",
+			        "label" : "Image height",
+			        "default" : "240px"
+			    },
+			    {
+			        "type" : "header",
+			        "content" : "Sub Collection"
+			    },
+			    {
+			        "type" : "checkbox",
+			        "id" : "enable_sub",
+			        "label" : "Enable?",
+			        "default" : false
+			    },
+			    {
+			        "type" : "text",
+			        "id" : "sub_title",
+			        "label" : "Title",
+			        "default" : "Jump to:"
+			    },
+			    {
+			        "type": "select",
+			        "id": "sub_style",
+			        "label": "Style Sub Collection",
+			        "options": [
+			        {
+			            "value": "style_1",
+			            "label": "Style Default"
+			        },
+			        {
+			            "value": "style_2",
+			            "label": "Style 2"
+			        }],
+			        "default": "style_1",
+			        "info": "Default: Style Default"
+			    }
+			]
+        },
+		{
+            "type": "sub-nav",
+            "name": "Collection header links",
+            "settings": [
+			    {
+			        "type": "collection",
+			        "id": "collection",
+			        "label": "Choose collection"
+			    },
+				{
+					"type": "link_list",
+					"id": "link_list",
+					"label": "Header menu"
+				}
+			]
+        }
+    ]
+  }
+{% endschema %}

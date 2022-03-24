@@ -1,0 +1,132 @@
+{% if section.blocks.size > 0 %}
+<div class="wrapper-body-wrap section-wrap maxi-banners-list" id="maxy-{{section.id}}" data-loader-script="{{ 'halo.slide-blog.js' | asset_url }}">
+    <div class="container wrapper-body-wrap">
+        {% if section.settings.widget_title != blank %}
+        <div class="maxi-title">   
+                <h2 class="text-center">
+                    <span class="title"> 
+                        {{ section.settings.widget_title }}
+                    </span>
+                </h2>
+        </div>
+        {% endif %}
+        <div class="banners-maxy">
+            <div class="row">
+                {% for block in section.blocks %}
+                    
+                <div class="item col-2">
+                    <div class="banner-item">
+                        <div class="img-box">
+                            {%- assign preview_img = block.settings.image -%}
+                            <a href="{{ block.settings.link }}" class="d-flex flex-center">
+ 
+                                {%- assign img_url = block.settings.image | img_url: 'original', crop: 'center' -%}
+
+                                <img data-src="{{ img_url }}" alt="{{ block.settings.image.alt | default: shop.name }}" itemprop="logo"
+                                    class="lazyload" data-sizes="auto">
+
+                            </a>
+                        </div>
+
+                        {% if block.settings.title != blank %}
+                        <div class="desc-box  text-center" style="{% if block.settings.color != blank %}color: {{ block.settings.color }};{% endif %}">
+                          <a href="{{ block.settings.link }}" class="text-hover banner-title text-center">
+                              {{ block.settings.title }}
+                          </a>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>       
+        </div>
+      	{% if section.settings.button-title != blank %}
+      		<a class="m-auto maxi-button d-flex flex-center" href="{{section.settings.button-link}}">
+              <span>{{section.settings.button-title}}</span>
+              <svg width="42" height="9" viewBox="0 0 42 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+              	<path d="M32.5 0L41.5 4.5L32.5 9V5H0.5V4H32.5V0Z" fill="white"/>
+              </svg>
+      		</a>
+      	{% endif %}
+    </div>
+</div>
+{% endif %}
+
+{% schema %}
+    {
+        "name": "Custom: Banners Maxi",
+        "class": "home-banners-maxy",
+        "max_blocks": 6,
+        "settings": [
+            {
+                "type": "text",
+                "id": "widget_title",
+                "label": "Title",
+                "default": "Title"
+            },
+			{
+              "type" : "text",
+              "id" : "button-title",
+              "label" : "Button Title",
+              "default" : "Button Title"
+            },                
+            {
+              "type": "url",
+              "id": "button-link",
+              "label": "Button Link",
+              "info": "Button link"
+            }      	
+        ],
+        "blocks": [
+            {
+                "type": "image",
+                "name": "Image",
+                "settings": [		  	
+                {
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "Image"
+                },
+                {
+                    "type" : "text",
+                    "id" : "title",
+                    "label" : "Title",
+                    "default" : "Title"
+                },                
+                {
+                    "type": "url",
+                    "id": "link",
+                    "label": "Link",
+                    "info": "Link"
+                }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "Custom: Banners Maxi",
+                "category": "Block Images",
+                "blocks": [
+                    {
+                        "type": "image"
+                    },
+                    {
+                        "type": "image"
+                    },
+                    {
+                        "type": "image"
+                    },
+                    {
+                        "type": "image"
+                    },
+                    {
+                        "type": "image"
+                    },
+                    {
+                        "type": "image"
+                    }
+                ]
+            }
+        ]
+    }
+{% endschema %}

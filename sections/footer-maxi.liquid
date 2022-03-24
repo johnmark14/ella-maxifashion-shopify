@@ -1,0 +1,138 @@
+<footer class="site-footer footer-maxi" role="contentinfo">
+  <div class="container wrapper-body-wrap section-wrap">
+      <div class="contact-form-maxi">
+        <div class="row">
+          <div class="col-12 mb-40">
+        	<h3 class="maxi-title text-center">Абонирайте се, за да узнаете първи за новите колекции</h3>
+          </div>
+        </div>
+        <div>
+        {% form 'customer' %}
+          {{ form.errors | default_errors }}
+          {% if form.posted_successfully? %}
+            <p class="form--success">Thank you for registration</p>
+          {% else %}
+            <input type="hidden" name="contact[tags]" value="newsletter">
+            <div class="input-group row">
+              <div class="col-sm-4">
+              	<input type="email" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="Вашата електронна поща" name="contact[email]" id="NewsletterEmail" class="" autocorrect="off" autocapitalize="off">
+              </div>
+              <div class="col-sm-4">
+              	<input type="text" name="contact[first_name]" class="" placeholder="Вашата име">
+              </div>
+              <div class="col-sm-4 button-holder">
+                <button type="submit" class="btn" name="commit" id="Subscribe">
+                 Регистрирам
+                </button>
+              </div>
+            </div>
+          {% endif %}
+        {% endform %}
+        </div>
+      </div>
+  </div>
+  <div class="bg-gray mt-30">
+    <div class="wrapper-body-wrap">
+      <div class="row py-40">
+        <div class="col-2 d-flex flex-center">
+        	{%- assign img_url = section.settings.image | img_url: 'original', crop: 'center' -%}
+            <img data-src="{{ img_url }}" alt="{{ section.settings.image.alt | default: shop.name }}" itemprop="logo" class="lazyload margin-auto" data-sizes="auto">
+        </div>
+        <div class="col-10">
+          <p>{{section.settings.footer-description}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bg-new-white">
+    <div class="wrapper-body-wrap">
+      <div class="row py-40">
+        <div class="col-10 d-flex html-wrap d-flex">
+          <div>
+            <p>
+              <a href="">Често задавани въпроси</a>
+            </p>
+            <p>
+              <a href="">Условия за ползване и лични данни</a>
+            </p>
+            <p>
+              <a href="">Политика за поверителност</a>
+            </p>
+          </div>
+          <div>
+            <p>
+              <a href="">Доставка</a>
+            </p>
+            <p>
+              <a href="">Връщане на продукт</a>
+            </p>
+            <p>
+              <a href="">Размери</a>
+            </p>
+          </div>
+          <div>
+            <p>
+              <a href="">Bubble Chic Limited Boutique</a>
+            </p>
+            <p>
+              <a href="">Връхни дрехи</a>
+            </p>
+            <p>
+              <a href="">Аксесоари</a>
+            </p>
+          </div>
+          <div>
+            <p>
+              <a href="">Блузи и туники</a>
+            </p>
+            <p>
+              <a href="">Поли и панталони</a>
+            </p>
+            <p>
+              <a href="">Рокли и костюми</a>
+            </p>
+          </div>
+        </div>
+         <div class="col-2">
+          	{%- assign img_url_trust = section.settings.image-badges | img_url: 'original', crop: 'center' -%}
+            <img data-src="{{ img_url_trust }}" alt="{{ section.settings.image.alt | default: shop.name }}" itemprop="logo" class="lazyload margin-auto" data-sizes="auto">
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+{% schema %}
+    {
+        "name": "Maxi: Footer",
+        "class": "maxi-footer",
+        "settings": [
+            {
+              "type": "textarea",
+              "id": "footer-description",
+              "label": "Description line text",
+              "default": "Put some description text to this block"
+            },
+ 			{
+              "type": "image_picker",
+              "id": "image",
+              "label": "Description line logo"
+            },
+			{
+              "type": "image_picker",
+              "id": "image-badges",
+              "label": "Trust badges"
+            },
+            {
+            "type": "html",
+            "id": "footer-html",
+            "label": "Footer html"
+            }
+        ],
+        "presets": [
+            {
+                "name": "Maxi: Footer",
+                "category": "text"
+            }
+        ]
+    }
+{% endschema %}

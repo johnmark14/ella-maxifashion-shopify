@@ -1,0 +1,29 @@
+<div class="wishlist-page">
+    <div class="container wrapper-body-wrap">
+      <header class="collection-header collection-header-sections ">
+        <div class="relative container">
+            <div class="collection-wrapper page-header collection-static">
+                <div class=" container-regular">
+                  
+                    <h1 class="text-center">
+                      {% render 'multilang' with page.title %}
+                    </h1>
+                    <div class="collection-des wishlist">
+                      {% render 'breadcrumb' %}               
+                    </div>      
+                </div>    
+            </div>
+        </div>
+      </header>
+      <div class="wrapper-wishlist">
+          {% render 'wishlist-page' %}
+      </div>
+    </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Wish list",
+    "settings": []
+  }
+{% endschema %}

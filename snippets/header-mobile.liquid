@@ -1,0 +1,113 @@
+<div class="header-mb test {% if settings.header_style_mobile == 'header_mobile_2' %}header_mobile_2{% elsif settings.header_style_mobile == 'header_mobile_3' %}header_mobile_3{% endif %}">          
+    <div class="header-mb-left header-mb-items">
+        <div class="hamburger-icon svg-mb">
+            <a href="#" class="icon-nav pos-relative-nav-toggle mb">
+                <span class="icon-line"></span>
+            </a>
+        </div>
+        {% if settings.header_style_mobile == 'header_mobile_1' %}
+        	{% if settings.enable_search %}
+          <div class="search-mb svg-mb">
+              <a href="{{ routes.search_url }}" title="Search Icon" class="icon-search">
+                  {% render 'icon-search' %}
+              </a>
+              {% comment %}
+              <a href="{{ routes.search_url }}" title="Search Icon" class="icon-search" data-search-mobile-toggle></a>
+                <a href="javascript:void(0)" title="close" class="close close-search">
+                    {% render 'icon-close' %}
+                </a>
+                {% render 'search-bar' %}
+              {% endcomment %}
+          </div>  
+        	{% endif %}
+        {% endif %}
+
+        {% if settings.header_style_mobile == 'header_mobile_2' %}
+          <div class="header-logo">
+            {% if section.settings.brand_type == 'image' and section.settings.logo != bank %}
+            <a class="logo-img" href="{{ routes.cart_url | split: 'cart' | first }}" title="Logo">
+              <img data-src="{{ section.settings.logo | img_url: 'master' }}"
+                   src="{{ section.settings.logo | img_url: 'master' }}"
+                   alt="{{ section.settings.logo.alt | default: shop.name }}" itemprop="logo" class="lazyautosizes lazyloade" data-sizes="auto">
+            </a>
+            {% elsif section.settings.brand_text != '' %}
+            <a class="logo-title" href="{{ routes.cart_url | split: 'cart' | first }}">
+              {{ section.settings.brand_text }}
+            </a>
+            {% else %}
+            <a class="logo-title" href="{{ routes.cart_url | split: 'cart' | first }}">
+              {{ shop.name }}
+            </a>
+            {% endif %}
+          </div>
+        {% endif %}
+    </div>
+
+  <div class="header-mb-middle header-mb-items">
+    {% if settings.header_style_mobile == 'header_mobile_1' or settings.header_style_mobile == 'header_mobile_3' %}
+      <div class="header-logo">
+        {% if section.settings.brand_type == 'image' and section.settings.logo != bank %}
+        <a class="logo-img" href="{{ routes.cart_url | split: 'cart' | first }}" title="Logo">
+          <img data-src="{{ section.settings.logo | img_url: 'master' }}"
+               src="{{ section.settings.logo | img_url: 'master' }}"
+               alt="{{ section.settings.logo.alt | default: shop.name }}" itemprop="logo" class="lazyautosizes lazyloade" data-sizes="auto">
+        </a>
+        {% elsif section.settings.brand_text != '' %}
+        <a class="logo-title" href="{{ routes.cart_url | split: 'cart' | first }}">
+          {{ section.settings.brand_text }}
+        </a>
+        {% else %}
+        <a class="logo-title" href="{{ routes.cart_url | split: 'cart' | first }}">
+          {{ shop.name }}
+        </a>
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+
+  <div class="header-mb-right header-mb-items">
+    {% if settings.header_style_mobile == 'header_mobile_2' or settings.header_style_mobile == 'header_mobile_3' %}
+      {% if settings.enable_search %}
+        <div class="search-mb svg-mb">
+            <a href="#" title="Search Icon" class="icon-search" data-search-mobile-toggle>
+                {% render 'icon-search' %}
+            </a>
+
+            <a href="javascript:void(0)" title="close" class="close close-search">
+                {% render 'icon-close' %}
+            </a>
+        
+            {% render 'search-bar' %}
+        </div>  
+      {% endif %}
+    {% endif %}
+
+    {% unless settings.header_style_mobile == 'header_mobile_3' %}
+      {% if shop.customer_accounts_enabled %}
+      <div class="acc-mb svg-mb">
+        <a href="#" title="User Icon" class="icon-user" data-user-mobile-toggle>
+          {% if settings.header_layout == '05' %}
+            {% render 'icons8-male-user' %}
+          {% elsif settings.header_layout == '06' %}
+            {% render 'icon-user-2' %}
+          {% elsif settings.header_layout == '07' %}
+            {% render 'icons7-user' %}
+          {% else %}
+            {% render 'icon-user' %}
+          {% endif %}
+        </a>
+      </div>
+      {% endif %}
+    {% endunless %}
+
+    <div class="cart-icon svg-mb">
+      <a href="#" title="Cart Icon" data-cart-toggle>
+        <svg viewBox="0 0 32 32" width="100%" height="100%"><path d="M 16 3 C 13.253906 3 11 5.253906 11 8 L 11 9 L 6.0625 9 L 6 9.9375 L 5 27.9375 L 4.9375 29 L 27.0625 29 L 27 27.9375 L 26 9.9375 L 25.9375 9 L 21 9 L 21 8 C 21 5.253906 18.746094 3 16 3 Z M 16 5 C 17.65625 5 19 6.34375 19 8 L 19 9 L 13 9 L 13 8 C 13 6.34375 14.34375 5 16 5 Z M 7.9375 11 L 11 11 L 11 14 L 13 14 L 13 11 L 19 11 L 19 14 L 21 14 L 21 11 L 24.0625 11 L 24.9375 27 L 7.0625 27 Z"></path></svg>    
+        <span class="cartCount" data-cart-count>
+          {{ cart.item_count }}
+        </span>
+      </a>
+    </div>
+
+  </div>          
+</div>

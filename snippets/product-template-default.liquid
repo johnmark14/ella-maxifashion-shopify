@@ -1,0 +1,1048 @@
+<style>
+.show-hide-text {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.invise{
+  display: none;
+}
+.show-hide-text div {
+  display: block;
+  max-height: 100%;
+}
+span.show-less, span.show-more{
+  font-weight: 600;
+  text-decoration: underline;
+  margin-top: 5px;
+  cursor: pointer;
+}
+</style>
+
+<div id="shopify-section-product-template-default" class="shopify-section  col-12 col-xl-9 col-main">
+  <div data-section-id="{{ section.id }}" data-section-type="product" id="ProductSection-{{ section.id }}" data-enable-history-state="true" data-collections-related="{{ routes.collections_url }}/{{collection.handle}}?view=related">
+      <div class="product product-default">
+
+          {%- assign current_variant = product.selected_or_first_available_variant -%}
+          {% assign variantCount = product.variants | size %}
+          {% assign htmlFirstStep = false %}
+
+          {% assign htmlFirstStep = product.description | split: '<div class="table-wrapper">' | last | remove: '<div class="table-wrapper">' %}
+          {% assign htmlSecondStep = product.description | split: '</table>' | first | append: '</table>' %}
+
+          <div class="row product_top{% if section.settings.show_tab == 'horizontal' or section.settings.show_tab == 'horizontal_center' %} horizontal-tabs{% else %} vertical-tabs has-sticky-product-img{% endif %}">
+              <div class="col-md-6 product-photos" data-more-view-product>
+                  <div {% if section.settings.show_tab == 'vertical' %} data-sticky-product-img{% endif %} class="product-img-box{% if section.settings.style_moreview == 'horizontal' %} horizontal-moreview{% elsif section.settings.style_moreview == 'left_vertical' %} left-vertical-moreview vertical-moreview{% else %} right-vertical-moreview vertical-moreview{% endif %}{% if settings.product_image_border%} grid-item-border{% endif %}">
+                      <div style="position: relative;" class="wrapper-images">
+                          <div class="product-photo-container slider-for">
+                              {% for media in product.media %}
+                                {% case media.media_type %}
+                                {% when 'image' %}
+                                <div class="thumb filter-{{ media.alt | handle }}">
+                                    <a {% if section.settings.enable_zoom_image %}data-zoom{% endif %} class="fancybox" rel="gallery1" href="{{ media | img_url: 'master' }}" data-fancybox="images">
+                                        <img id="product-featured-image-{{media.id}}" src="{{ media | img_url: 'master' }}" alt="{{ media.alt | escape }}"
+                                            class="lazyload"
+                                            data-src="{{ media | img_url: 'master' }}"
+                                            data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                                            data-aspectratio="{{ media | img_url: 'master' }}"
+                                            data-sizes="auto">
+                                    </a>
+                                </div>
+                                {% when 'external_video' %}
+                                <div class="thumb filter-{{ media.alt | handle }}">
+                                  <div class="product-single__media" style="padding-top: 100%" data-media-id="{{ media.id }}">
+                                    {{ media | external_video_tag: image_size: "1024x", loop: true}}
+                                  </div>
+                                </div>
+                                {% when 'video' %}
+                                <div class="thumb">
+                                  <div class="product-single__media" style="padding-top: {{ 1 | divided_by: media.aspect_ratio | times: 100 }}%" data-media-id="{{ media.id }}">
+                                    {{ media | video_tag: controls: true, loop: true, image_size: "1024x" }}
+                                  </div>
+                                </div>
+                                {% when 'model' %}
+                                <div class="thum">
+                                  <div class="product-single__media model-viewer-click" style="padding-top: 100%" data-media-id="{{ media.id }}">
+                                    {{ media | model_viewer_tag: image_size: '1024x', 
+                                    reveal: 'interaction', 
+                                    toggleable: true, 
+                                    data-model-id: media.id, 
+                                    auto-rotate: true,
+                                    id: 'paused-change-demo'
+                                    }}
+                                  </div>
+                                  <div class="shopify-model-viewer-ui__controls-overlay">
+                                    <div class="shopify-model-viewer-ui__button shopify-model-viewer-ui__button--poster" aria-label="Play 3D Viewer">
+                                      <svg viewBox="0 0 60 60" id="threed-icon-button-control"><path fill="none" d="M0 0h60v60H0z"></path><path fill="currentColor" d="M40.4 22.57l-8.8-5.14a3.19 3.19 0 00-3.21 0l-8.8 5.14A3.24 3.24 0 0018 25.36v10.28a3.23 3.23 0 001.6 2.79l8.8 5.14a3.2 3.2 0 003.21 0l8.8-5.14A3.23 3.23 0 0042 35.64V25.36a3.24 3.24 0 00-1.6-2.79zM20.6 36.7a1.23 1.23 0 01-.6-1.06V25.36a1.23 1.23 0 01.6-1.06l8.8-5.14a1.19 1.19 0 011.19 0l8.8 5.14a1.2 1.2 0 01.36.34l-9.51 4.89a2.23 2.23 0 00-1.25 2V41.6z"></path></svg>
+                                    </div>
+                                  </div>
+                                </div>
+                                
+                                {% else %}
+                                <div class="thumb table"  filter-{{ media.alt | handle }}>
+                                  <div class="product-single__media" data-media-id="table">
+                                    {{ media | media_tag }}
+                                  </div>
+                                </div>
+                                {% endcase %}
+                              {% endfor %}
+                              <div class="thumb table" filter-table class="fancybox" rel="gallery1" href="#sizes" data-fancybox="images">
+                                <div id="sizes">
+                                  {{ htmlSecondStep }}
+                                </div>
+                              </div>
+                          </div>
+
+                          {% if enable_compare_color and show_compare_color %}
+                              <div class="product-single__compareColor">
+                                  <a class="compareColor-link" href="javascript:void(0);" aria-label="link">
+                                      {{ settings.compare_color_title }}
+                                  </a>
+                              </div>
+                          {% endif %}
+
+                          {% render 'product-label', product: product, badge_detail: true, serial: 1 %}
+                      </div>
+                      <div style="display: none;" class="sl-counter">
+                        <span class="current"></span> / <span class="total"></span>
+                      </div>
+                      <div class="slider-nav" data-rows="5" data-vertical="{% if section.settings.style_moreview == 'horizontal' %}false{% else %}true{% endif %}">
+                        {% for media in product.media %}
+                        {% case media.media_type %}
+                        {% when 'image' %}
+                        <div class="item filter-{{ media.alt | handle }}">
+                          <div class="product-single__media" data-media-id="{{ media.id }}">
+                            <a href="javascript:void(0)" data-image="{{ media | img_url: 'original' }}" data-zoom-image="{{ media | img_url: 'original' }}">
+                              <img src="{{ media | img_url: 'compact' }}" alt="{{ media.alt | escape }}">
+                            </a>
+                          </div>
+                        </div>
+                        {% when 'external_video' %}
+                        <div class="item">
+                          <div class="product-single__media" data-media-id="{{ media.id }}">
+                           <a href="javascript:void(0)" data-image="{{ product.images.first | img_url: '180x' }}" data-zoom-image="{{ product.images.first | img_url: '180x' }}">
+                              <img id="product-featured-image-{{image.id}}" class="product-single__thumbnail-image" src="{{ product.images.first | img_url: '180x' }}" alt="{{ media.alt }}">
+                              <svg viewBox="0 0 200 200" id="icon-video-product">
+                                  <circle cx="100" cy="100" r="90" fill="none" stroke-width="8"></circle>
+                                  <polygon points="70, 50 70, 145 155, 100"></polygon>
+                              </svg>
+                            </a>
+                          </div>
+                        </div>
+                        {% when 'video' %}
+                        <div class="item">
+                          <div class="product-single__media" data-media-id="{{ media.id }}">
+                            <a href="javascript:void(0)" data-image="{{ product.images.first | img_url: '180x' }}" data-zoom-image="{{ product.images.first | img_url: '180x' }}">
+                              <img id="product-featured-image-{{image.id}}" class="product-single__thumbnail-image" src="{{ product.images.first | img_url: '180x' }}" alt="{{ media.alt }}">
+                              <svg viewBox="0 0 200 200" id="icon-video-product">
+                                  <circle cx="100" cy="100" r="90" fill="none" stroke-width="8"></circle>
+                                  <polygon points="70, 50 70, 145 155, 100"></polygon>
+                              </svg>
+                            </a>
+                          </div>
+                        </div>
+                        {% when 'model' %}
+                        <div class="item">
+                          <div class="product-single__media" data-media-id="{{ media.id }}">
+                            {{ media | model_viewer_tag: image_size: image_size, 
+                            reveal: 'interaction', 
+                            toggleable: true, 
+                            data-model-id: media.id, 
+                            auto-rotate: true
+                            }}
+                          </div>
+                        </div>
+                        {% else %}
+                        <div class="item">
+                          <div class="product-single__media 4" data-media-id="{{ media.id }}">
+                            {{ media | media_tag }}
+                          </div>
+                        </div>
+                        {% endcase %}
+                        {% endfor %}
+                        <div class="item filter-table">
+                          <div class="product-single__media 4" data-media-id="table">
+                            <div>
+                              <img src="{{ 'size.jpg' | asset_img_url: '100x' }}" alt="size" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {% if settings.enable_ask_an_expert %}
+                        <div class="theme-ask">
+                            <h5 class="ask-an-expert-text" data-toggle="modal" data-target="#ask_an_expert">
+                                {% render 'multilang' with settings.ask_an_expert %}
+                            </h5>
+                        </div>
+                      {% endif %}
+                  </div>
+                  
+              </div>
+
+              <div class="col-md-6 product-shop tt">
+                  <div class="row py-10 p-holder">
+                  	<div class="col-8 p-0">
+                    
+                     <div class="prices">
+                        {% if product.compare_at_price > product.price %}
+                        <span class="compare-price">
+                            {{ product.compare_at_price_max | money }}
+                        </span>
+                        <span class="price on-sale" itemprop="price">
+                            {{ product.price | money }}
+                        </span>
+                        {% else %}
+                        <span class="price" itemprop="price">
+                            {{ product.price | money }}
+                        </span>
+                        {% endif %}
+                        <input type="hidden" id="product_regular_price" name="product_regular_price" value="{{ product.price }}">
+                    </div>
+                      
+                    </div>
+                    <div class="col-4 p-0">
+                    	{% if section.settings.display_product_sku %}
+                      <div class="sku-product text-right">
+                          {% if section.settings.text_product_sku != blank %}
+                          {% if settings.enable_multilang %}
+                          <label class="lang1">
+                              {{ section.settings.text_product_sku | split: '|' | first }}
+                          </label>
+                          <label class="lang2">
+                              {{ section.settings.text_product_sku | split: '|' | last }}
+                          </label>
+                          {% else %}
+                          <label>
+                              {{ section.settings.text_product_sku | split: '|' | first }}
+                          </label>
+                          {% endif %}
+                          {% endif %}
+                          <span>{{ current_variant.sku }}</span>
+                      </div>
+                      {% endif %}
+                    </div>
+                  </div>
+                  <h1 class="product-title">
+                      {% render 'multilang' with product.title %}
+                  </h1>
+ 				          {% render 'breadcrumb' %}
+                  {% if section.settings.display_product_reviews or section.settings.show_sold_in %}
+                  <div class="group_item">
+                      {% if section.settings.display_product_reviews %}
+                      <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+                      {% endif %}
+
+                      {% if section.settings.show_sold_in %}
+                      <div data-soldOut-product class="sold_product" data-items="{{ section.settings.item_prd }}" data-hours="{{ section.settings.hours_prs }}">
+                          <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="fire" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="svg-inline--fa fa-fire fa-w-12 fa-2x"><path fill="currentColor" d="M216 24.01c0-23.8-31.16-33.11-44.15-13.04C76.55 158.25 200 238.73 200 288c0 22.06-17.94 40-40 40s-40-17.94-40-40V182.13c0-19.39-21.86-30.76-37.73-19.68C30.75 198.38 0 257.28 0 320c0 105.87 86.13 192 192 192s192-86.13 192-192c0-170.29-168-192.85-168-295.99zM192 464c-79.4 0-144-64.6-144-144 0-28.66 8.56-64.71 24-88v56c0 48.52 39.48 88 88 88s88-39.48 88-88c0-64.27-88-120-64-208 40 88 152 121.77 152 240 0 79.4-64.6 144-144 144z" class=""></path></svg>
+                          <span class="items-count">2</span>
+                          {% render 'multilang' with section.settings.item_prds %}
+                          <span class="hours-num">8</span>
+                          {% render 'multilang' with section.settings.item_hours %}
+                      </div>
+                      {% endif %}
+                  </div>
+                  {% endif %}
+
+                  {% if section.settings.display_vendor or section.settings.display_availability or section.settings.display_product_sku or section.settings.display_product_type %}
+                  <div class="product-info">
+                      {% if section.settings.display_vendor %}
+                      <div class="vendor-product">
+                          {% if section.settings.text_vendor != blank %}
+                          {% if settings.enable_multilang %}
+                          <label class="lang1">
+                              {{ section.settings.text_vendor | split: '|' | first }}
+                          </label>
+                          <label class="lang2">
+                              {{ section.settings.text_vendor | split: '|' | last }}
+                          </label>
+                          {% else %}
+                          <label>
+                              {{ section.settings.text_vendor | split: '|' | first }}
+                          </label>
+                          {% endif %}
+                          {% endif %}
+                          <span>
+                            {{ product.vendor | link_to_vendor }}
+                          </span>
+                      </div>
+                      {% endif %}
+
+                      
+
+                      {% if section.settings.display_availability %}
+                      <div class="product-inventory">
+                          {% if section.settings.text_availability != blank %}
+                          <label>
+                              {{ section.settings.text_availability | split: '|' | first }}
+                          </label>
+                          {% endif %}
+                          <span>
+                          {% if current_variant.inventory_management %}
+                          {% assign first_inventory = current_variant.inventory_quantity %}
+                          {% if first_inventory > 0 %}
+                          {{first_inventory}} {{ 'products.product.in_stock' | t }}
+                          {% else %}
+                          {{ 'products.product.out_of_stock' | t }}
+                          {% endif %}
+                          {% else %}
+                          {{ 'products.product.many_in_stock' | t }}
+                          {% endif %}
+                          </span>
+                      </div>
+                      {% endif %}
+
+                      {% if section.settings.display_product_type %}
+                      <div class="product-type">
+                          {% if section.settings.text_product_type != blank %}
+                          {% if settings.enable_multilang %}
+                          <label class="lang1">
+                              {{ section.settings.text_product_type | split: '|' | first }}
+                          </label>
+                          <label class="lang2">
+                              {{ section.settings.text_product_type | split: '|' | last }}
+                          </label>
+                          {% else %}
+                          <label>
+                              {{ section.settings.text_product_type | split: '|' | first }}
+                          </label>
+                          {% endif %}
+                          {% endif %}
+                          {% if settings.enable_multilang %}
+                          <span class="lang1">
+                            {{ product.type | split: '|' | first }}
+                          </span>
+                          <span class="lang2">
+                            {{ product.type| split: '|' | last }}
+                          </span>
+                          {% else %}
+                          <span>
+                            {{ product.type | split: '|' | first }}
+                          </span>
+                          {% endif %}
+                      </div>
+                      {% endif %}
+                  </div>
+                  {% endif %}
+                  {% if section.settings.enable_countdown %}
+                
+                  {% if section.settings.option_countdown == 'all_product' %}
+                    {% assign count_down_final = section.settings.count_down_timer %}
+                    {% if section.settings.countdown == 'countdown_1' %}
+                    <div class="countdown">
+                        {% render 'multilang' with section.settings.text_countdown %}
+                        <div class="countdown-item" data-countdown-normal data-countdown-value="{{ count_down_final }}"></div>
+                    </div>
+
+                    {% else %}
+                    {% render 'countdown-progressbar', count_down_final: count_down_final %}
+                    {% endif %}
+                
+                  {% else %}
+                
+                    {% if product.metafields.c_f.countdown %}
+                      {% capture count_down_final %}{{ product.metafields.c_f.countdown }}{% endcapture %}
+
+                      {% if section.settings.countdown == 'countdown_1' %}
+                      <div class="countdown">
+                          {% render 'multilang' with section.settings.text_countdown %}
+                          <div class="countdown-item" data-countdown-normal data-countdown-value="{{ count_down_final }}"></div>
+                      </div>
+                      {% else %}
+                      {% render 'countdown-progressbar', count_down_final: count_down_final %}
+                      {% endif %}
+
+                    {% endif %}
+                  {% endif %}
+                
+                  
+                
+                  {% if section.settings.custombox_text != blank %}
+                  <div class="product-custombox hide-for-small-only">
+                    {% if section.settings.custombox_text contains '[lang2]' %}
+                    <span class="rte lang1">
+                      {{ section.settings.custombox_text | split: '[lang2]' | first }}
+                    </span>
+                    <span class="rte lang2">
+                      {{ section.settings.custombox_text| split: '[lang2]' | last }}
+                    </span>
+                    {% else %}
+                    <span class="rte">
+                      {{ section.settings.custombox_text | split: '[lang2]' | first }}
+                    </span>
+                    {% endif %}
+                  </div>
+                  {% endif %}
+                
+                  {% endif %}
+
+                  {% if product.description contains '[countdown]' %}
+                  {% assign des = product.description | split:'[/countdown]' | last %}
+                  {% if des contains '[custom tab]'%}
+                  {% assign des = des | split:'[custom tab]' | first | split:'<iframe' | first %}
+                  {% endif %}
+                  {% else %}
+                  {% assign des = product.description %}
+                  {% if des contains '[custom tab]'%}
+                  {% assign des = des | split:'[custom tab]' | first | split:'<iframe' | first %}
+                  {% endif %}
+                  {% endif %}
+
+                  {% if section.settings.show_desc == 'short' %}
+
+                  {% if product.metafields.c_f.short_description %}
+                  {% assign des = product.metafields.c_f.short_description %}
+                  {% assign word_numbeer = 1000000000 %}
+                  {% if settings.enable_multilang and des contains '[lang2]' %}
+                  <div class="short-description">
+                      <div class="lang1">
+                          {{ des | split: '[lang2]' | first | replace: '&nbsp;', ' ' | truncatewords: word_numbeer }}
+                      </div>
+                      <div class="lang2">
+                          {{ des | split: '[lang2]' | last | replace: '&nbsp;', ' ' | truncatewords: word_numbeer }}
+                      </div>
+                  </div>
+                  {% else %}
+                  <div class="short-description">
+                      {{ des | split: '[lang2]' | first | replace: '&nbsp;', ' ' | truncatewords: word_numbeer }}
+                  </div>
+                  {% endif %}
+                  {% else %}
+                  {% assign word_numbeer = 50 %}
+                
+                  {% if settings.enable_multilang and des contains '[lang2]' %}
+                  <div class="short-description">
+                      <div class="lang1">
+                          {{ des | split: '[lang2]' | first | strip_html | replace: '&nbsp;', ' ' | truncatewords: word_numbeer }}
+                      </div>
+                      <div class="lang2">
+                          {{ des | split: '[lang2]' | last | strip_html | replace: '&nbsp;', ' ' | truncatewords: word_numbeer }}
+                      </div>
+                  </div>
+                  {% else %}
+                  <div class="short-description">
+                      {{ des | split: '[lang2]' | first | strip_html | replace: '&nbsp;', ' ' | truncatewords: word_numbeer }}
+                  </div>
+                  {% endif %}
+                
+                  {% endif %}
+
+                  {% elsif section.settings.show_desc == 'full' %}
+                  {% if settings.enable_multilang and des contains '[lang2]' %}
+                  <div class="short-description">
+                      <div class="lang1">
+                          {{ des | split: '[lang2]' | first }}
+                      </div>
+                      <div class="lang2">
+                          {{ des | split: '[lang2]' | last }}
+                      </div>
+                  </div>
+                  {% else %}
+                  <div class="short-description">
+                      {{ des | split: '[lang2]' | first }}
+                  </div>
+                  {% endif %}
+                  {% endif %}
+
+                  {% form 'product', product, id: "add-to-cart-form", novalidate: 'novalidate' %}
+                  {% if settings.display_size_chart %}
+                  <a data-toggle="modal" data-target="#size_chart" class="size-chart-open-popup">
+                    {% render 'multilang' with settings.size_guide_text %}
+                  </a>
+                  {% endif %}
+                  {% assign desc = product.description | split: '</table>' | last %}
+                  <div class="description custom">
+                    <div class="show-hide-text">
+                      <div class="desc-txt show-less">
+                        <div class="inner">
+                          {{ desc | remove: '<p>&nbsp;</p>' }}
+                        </div>
+                      </div>
+                      <span id="show-less" class="show-less invise">Покажи по-малко</span>
+                      <span id="show-more" class="show-more invise">Покажи повече</span>
+                    </div>
+                    
+                  </div>
+                  <div class="d-flex size-btn">
+                    <img src="{{ 'size.jpg' | asset_img_url: '30x' }}" alt="size" />
+                    <a class="fancybox" rel="gallery1" href="#sizes" data-fancybox="images" href="">Tаблица с размери</a>
+                  </div>
+                  <div class="d-flex size-btn delivery-btn" style="margin-top: 5px; margin-bottom: 30px;">
+                    <img src="{{ 'delivery.png' | asset_img_url: '30x' }}" alt="size" />
+                    <span id="delivery-popup-btn">Доставка и връщане</span>
+                    <!--<img src="{{ 'size.jpg' | asset_img_url: '30x' }}" alt="size" />-->
+                    <!--<a class="fancybox" rel="gallery1" href="#sizes" data-fancybox="images" href="">Tаблица с размери</a>-->
+                  </div>
+                  <div id="product-variants">
+                      {% if variantCount > 0  and product.variants[0].title != 'Default Title'  %}
+                      <select id="product-selectors" name="id" style="display: none;">
+                          {% for variant in product.variants %}
+                          {% if variant.available %}
+                          <option data-imge="{% if variant.image.size != blank %}{{ variant.image.src | product_img_url: 'compact' }}{% else  %}{{ product.featured_image.src | product_img_url: 'compact' }}{% endif %}" {% if variant == current_variant %} selected="selected" {% endif %} value="{{ variant.id }}">
+                              {{ variant.title }}
+                          </option>
+                          {% else %}
+                          <option disabled="disabled">{{ variant.title }} - {{ 'products.product.sold_out' | t }}</option>
+                          {% endif %}
+                          {% endfor %}
+                      </select>
+
+                      {% if settings.use_color_swatch %}
+                      
+                        {% for option in product.options %}
+                          {% render 'swatch' with option %}
+                        {% endfor %}
+                      {% endif %}
+
+                      {% else %}
+                      <input type="hidden" name="id" value="{{ product.variants[0].id }}" />
+                      {% endif %}
+
+                      {% if enable_hot_stock and product.variants.size > 0 and product.variants.first.title != 'Default Title' %}
+                      {% assign max_stock = section.settings.number_stock | plus: 0 %}
+                      <div class="hot_stock" data-stock-hot data-value="{{max_stock}}">
+                          {% if current_variant.inventory_management %}
+                              {% if current_variant.inventory_quantity > 0 and current_variant.inventory_quantity <= max_stock %}
+                              {{ "products.product.stock_hot" | t | replace: '[inventory]', current_variant.inventory_quantity }}
+                              {% endif %}
+                          {% endif %}
+                      </div>
+                      {% endif %}
+                  </div>
+                  
+                  <div class="maxi-head-contacts p-block mt-30 mb-35">
+                    <p>Поръчайте и по телефона</p>
+                    <a href="tel:0883 900 111">
+                      <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0)">
+                        <path d="M10.1174 7.22024C9.4439 7.22024 8.78264 7.11491 8.15601 6.90783C7.84896 6.8031 7.47149 6.89918 7.28409 7.09165L6.04725 8.02533C4.61287 7.25966 3.72931 6.37639 2.9741 4.95278L3.88031 3.74816C4.11575 3.51304 4.2002 3.16958 4.09902 2.84731C3.89105 2.21739 3.7854 1.55644 3.7854 0.882693C3.78543 0.395971 3.38946 0 2.90277 0H0.882664C0.395971 0 0 0.395971 0 0.882664C0 6.46144 4.53859 11 10.1174 11C10.6041 11 11 10.604 11 10.1173V8.10288C11 7.61621 10.604 7.22024 10.1174 7.22024Z" fill="black"></path>
+                        </g>
+                        <defs>
+                        <clipPath id="clip0">
+                        <rect width="11" height="11" fill="white"></rect>
+                        </clipPath>
+                        </defs>
+                      </svg>
+                      <span>0883 900 111</span>
+                    </a>
+                  </div>
+                
+                  {% if product.available and section.settings.display_qty %}
+                  <div class="quantity">
+                      <label for="quantity" {% if settings.enable_multilang %}data-translate="cart.label.quantity"{%endif%}>
+                          {{ 'cart.label.quantity' | t }}:
+                      </label>
+                      <div class="qty-group">
+                          <a href="#" data-minus-qtt class="minus button"></a>
+                          <input type="number" data-qtt-id="quantity__{{ product.id }}" name="quantity" value="1" inputmode="numeric" pattern="[0-9]*">
+                          <a href="#" data-plus-qtt class="plus button"></a>
+                      </div>
+                  </div>
+                  {% endif %}
+
+                  {% if section.settings.display_subtotal and product.available and section.settings.display_qty %}
+                  <div class="total-price">
+                      <label {% if settings.enable_multilang %}data-translate="cart.general.subtotal"{%endif%}>
+                          {{ 'cart.general.subtotal' | t }}:
+                      </label>
+                      <span class="total-money">
+                          {{ current_variant.price | money }}
+                      </span>
+                  </div>
+                  {% endif %}
+
+                  {% if settings.enable_checkbox %}
+                      
+                      <div class="groups-btn">
+                          <div class="groups-btn-tree {% if section.settings.display_product_detail_share or settings.enable_wishlist %}margin-button{% endif %}">
+                            {% if current_variant.available %}
+                          
+                            {% if current_variant.inventory_management %}
+                            {% assign first_inventory = current_variant.inventory_quantity %}
+                          
+                            {% if first_inventory > 0 %}
+                            <input data-btn-addToCart type="submit" name="add" class="btn" {% if settings.enable_multilang %}data-translate="products.product.add_to_cart"{%endif%} id="product-add-to-cart" value="{{ 'products.product.add_to_cart' | t }}" data-form-id="#add-to-cart-form">
+                            {% else %}
+                            <input data-btn-addToCart type="submit" name="add" class="btn" {% if settings.enable_multilang %}data-translate="products.product.pre_order"{%endif%} id="product-add-to-cart" value="{{ 'products.product.pre_order' | t }}" data-form-id="#add-to-cart-form">
+                            {% endif %}
+                          
+                            {% else %}
+                            <input data-btn-addToCart type="submit" name="add" class="btn" {% if settings.enable_multilang %}data-translate="products.product.add_to_cart"{%endif%} id="product-add-to-cart" value="{{ 'products.product.add_to_cart' | t }}" data-form-id="#add-to-cart-form">
+                            {% endif %}
+                          
+                            {% else %}
+                            <input type="submit" name="add" class="btn" {% if settings.enable_multilang %}data-translate="products.product.unavailable"{%endif%} id="product-add-to-cart" disabled value="{{ 'products.product.unavailable' | t }}" >
+                            {% endif %}
+
+                            {% render 'wishlist-product' %}
+
+                            {% if section.settings.display_product_detail_share %}
+                              <a class="icon-share" href="javascript:void(0)" aria-label="{{ 'products.product.share' | t }}" {% if settings.enable_multilang %}data-translate="products.product.share"{%endif%}>{% render 'icon-share' %}</a>
+                            {% endif %}
+                          </div>
+
+                          <!--<div class="checkbox-group">
+                              <input class="conditions" type="checkbox" name="conditions">
+                              <label class="title" for="conditions">
+                                  {{settings.checkbox_text}}
+                              </label>
+                              {% if settings.terms_conditions_text_link != blank %}
+                              <a data-toggle="modal" data-target="#terms_condition_modal" href="javascript:void(0)" aria-label="link" aria-describedby="a11y-external-message">
+                                  {{ settings.terms_conditions_text_link }}
+                              </a>
+                              {% endif %}
+                          </div>-->
+                          <div class="btn-checkout show"> 
+                          {% if section.settings.enable_payment_button and current_variant.available %}
+                              {{ form | payment_button }}
+                          {% endif %}
+                          </div>
+
+                          <div class="wrapper-social-popup">
+                            <div class="title-close">
+                              <p class="social-title">{{ 'products.product.copy_link' | t }}</p>
+                              {% render 'icon-close' %}
+                            </div>
+                            <div class="social-garment-link" role="button" tabindex="-1"><input type="text" value="{{ canonical_url }}" class="txt_copy" readonly="readonly"></div>
+                            {% if section.settings.display_product_detail_share %}
+                              {% render 'share' with product %}
+                            {% endif %}
+                          </div>
+                      </div>
+                  {% else %}
+                      <div class="groups-btn">
+                          <div class="groups-btn-tree {% if section.settings.display_product_detail_share or settings.enable_wishlist %}margin-button{% endif %}">
+                            {% if current_variant.available %}
+                          
+                            {% if current_variant.inventory_management %}
+                            {% assign first_inventory = current_variant.inventory_quantity %}
+                          
+                            {% if first_inventory > 0 %}
+                            <input data-btn-addToCart type="submit" name="add" class="btn" {% if settings.enable_multilang %}data-translate="products.product.add_to_cart"{%endif%} id="product-add-to-cart" value="{{ 'products.product.add_to_cart' | t }}" data-form-id="#add-to-cart-form">
+                            {% else %}
+                            <input data-btn-addToCart type="submit" name="add" class="btn" {% if settings.enable_multilang %}data-translate="products.product.pre_order"{%endif%} id="product-add-to-cart" value="{{ 'products.product.pre_order' | t }}" data-form-id="#add-to-cart-form">
+                            {% endif %}
+                            {% else %}
+                            <input data-btn-addToCart type="submit" name="add" class="btn" {% if settings.enable_multilang %}data-translate="products.product.add_to_cart"{%endif%} id="product-add-to-cart" value="{{ 'products.product.add_to_cart' | t }}" data-form-id="#add-to-cart-form">
+                            {% endif %}
+                          
+                            {% else %}
+                            <input type="submit" name="add" class="btn" {% if settings.enable_multilang %}data-translate="products.product.unavailable"{%endif%} id="product-add-to-cart" disabled value="{{ 'products.product.unavailable' | t }}" >
+                            {% endif %}
+
+                            {% render 'wishlist-product' %}
+
+                            {% if section.settings.display_product_detail_share %}
+                              <a class="icon-share" href="javascript:void(0)">{% render 'icon-share' %}</a>
+                            {% endif %}
+                          </div>
+
+                          {% if section.settings.enable_payment_button and current_variant.available %}
+                          {{ form | payment_button }}
+                          {% endif %}
+
+                          <div class="wrapper-social-popup">
+                            <div class="title-close">
+                              <p class="social-title">{{ 'products.product.copy_link' | t }}</p>
+                              {% render 'icon-close' %}
+                            </div>
+                            <div class="social-garment-link" role="button" tabindex="-1"><input type="text" value="{{ canonical_url }}" class="txt_copy" readonly="readonly"></div>
+                            {% if section.settings.display_product_detail_share %}
+                              {% render 'share' with product %}
+                            {% endif %}
+                          </div>
+                      </div>
+                  {% endif %}
+                  
+                  {% endform %}
+
+                  {% render 'nofify-sold-out', product: product, variantCount: variantCount, current_variant: current_variant %}
+
+                  {% if section.settings.dpl_customers_view %}
+                  <div id="customers_view" data-customer-view="{{ section.settings.number_view }}">
+                    <i class="fa fa-eye" aria-hidden="true"></i>
+                    <label>{{ section.settings.number_view | split: ',' | slice: 0 }}</label> {% render 'multilang' with section.settings.title_view %}
+                  </div>
+                  {% endif %}
+
+                  {% if section.settings.display_product_detail_tag %}
+                  <div class="tags">
+                      <strong class="icon-tags" {% if settings.enable_multilang %}data-translate="blogs.article.tags"{%endif%}>{{ 'blogs.article.tags' | t }}:</strong>
+                      {% for tag in product.tags %}
+                      <span class="separator">/</span>
+                      <a href="/collections/all/?constraint={{ tag | handle }}" rel="tag">
+                        {% if settings.enable_multilang %}
+                        <span class="lang1">{{ tag | split: '|' | first }}</span>
+                        <span class="lang2">{{ tag | split: '|' | last }}</span>
+                        {% else %}
+                        <span>{{ tag | split: '|' | first }}</span>
+                        {% endif %}
+                      </a>
+                      {% endfor %}
+                  </div>
+                  {% endif %}
+
+                  {% if section.settings.display_trust_img and settings.img_trust != blank %}
+                  <div class="secure-shopping-guarantee">
+                      <img src="{{ settings.img_trust | img_url: '800x'  }}">
+                  </div>
+                  {% endif %}
+
+                  <div
+                    id="store_availability" class="product-single__store-availability-container"
+                    data-store-availability-container
+                    data-product-title="{{ product.title | escape }}"
+                    data-has-only-default-variant="{{ product.has_only_default_variant }}"
+                    data-base-url="{{ shop.url }}{{ routes.root_url }}"
+                  >
+                  </div>
+
+                  {% if section.settings.show_tab == 'vertical' %}
+                    {% render 'tab-vertical' %}
+                  {% endif %}
+                 
+              </div>
+          </div>
+          {% assign use-meta = false %}
+          {% assign fields = "" %}
+          {% assign counter = 0 %}
+          {% assign related_counter = 0 %}
+          {% if  section.settings.use-meta %}
+            {% assign fields = section.settings.fields | split: "," %}
+            {% for field in fields %}
+              {% assign meta_f = field | split: ':' %}
+              {% assign meta_key = meta_f | first %}
+              {% assign meta_val = meta_f | last %}
+              {% if product.metafields.my_fields[meta_key] != blank %}
+                {% assign use-meta = true %}
+                {% assign counter = counter | plus: 1 %}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+          {% assign use-upsell = false %}
+          {% for i in (1..4) %}
+            {% assign look_product = "product_" | append: i %}
+            {% assign look_add_product = "look_product_" | append: i %}
+            {% assign related_product_id = product.metafields.my_fields[look_product] %}
+            {% assign related_product_add_id = product.metafields.my_fields[look_add_product] %}
+            {% if all_products[related_product_id].id != "" or all_products[related_product_add_id].id != "" %}
+              {% assign use-upsell = true %}
+              {% assign related_counter = related_counter | plus: 1 %}
+            {% endif %}
+          {% endfor %}
+            {% if section.settings.additional-heading != blank %}
+              {% if product.collections.size > 1 or use-meta %}
+              <div class="widget-title not-before mb-30">
+                <h3 class="box-title">
+                  <span class="title"> 
+                    {{ section.settings.additional-heading }}
+                  </span>
+                </h3>
+              </div>
+              {% endif %}
+            {% endif %}
+            <div class="row additional-block">
+                {% if use-meta %}
+                <div class="col-md-6 additiona-field {% if product.collections.size > 1 %}bordered{% endif %}">
+                  {% if product.collections.size > 1 %}<div class="row">{% endif %}
+                  {% for field in fields %}
+                    {% assign meta_f = field | split: ':' %}
+                    {% assign meta_key = meta_f | first %}
+                    {% assign meta_val = meta_f | last %}
+                    {% if product.metafields.my_fields[meta_key] != blank %}
+                      <div class="{%if counter > 2%}col-md-6 {%endif%}col-12"><strong>{{ meta_val }}</strong>: {{product.metafields.my_fields[meta_key]}}</div>
+                    {% endif %}
+                  {% endfor %}
+                  {% if product.collections.size > 1 %}</div>{% endif %}
+                </div>
+                {% endif %}
+                {% if product.collections.size > 1 %}
+                <div class="{% if use-meta%}col-md-6{%else%}col-md-12{%endif%} collections-block {% if use-meta and use-upsell %}h-margin bordered{%endif%}">
+                  <div class="col-12"><h5>Колекции:</h5></div>
+                  <div class="col-12">
+                    {% for collection in product.collections %}
+                        <a href="{{ collection.url }}">{{ collection.title }}</a>
+                    {% endfor %}
+                  </div>
+                {% endif %}
+                </div>
+            </div>
+            {%if use-upsell != false%}
+              <div class="row additional-block related">
+                {% assign col = 'col-md-12 full-w' %}
+                {% if related_counter == 2 %}
+                  {% assign col = 'col-md-6 full-w' %}
+                {% endif %}
+                {% if related_counter == 3 %}
+                  {% assign col = 'col-md-4' %}
+                {% endif %}
+                {% if related_counter == 4 %}
+                  {% assign col = 'col-md-3' %}
+                {% endif %}
+                <div class="col-md-12 col-12 p-0 related-products-look">
+                  <div class="widget-title not-before">   
+                    <h3 class="box-title">
+                      <span class="title"> 
+                        Завършете външния си вид:
+                      </span>
+                    </h3>    
+                  </div>
+                  <div class="row mt-2">
+                    {% for i in (1..4) %}
+                      {% assign look_product = "product_" | append: i %}
+                      {% assign look_add_product = "look_product_" | append: i %}
+                      {% if product.metafields.my_fields[look_product] != null and i < 3 %}
+                        {% assign related_product_id = product.metafields.my_fields[look_product] %}
+                        {% if all_products[related_product_id].id != "" %}
+                          <div class="{{col}} col-12 grid-item {{ grid_item_width }} {% if settings.product_image_border%}grid-item-border {% endif %}"> 
+                            {% render 'product-grid-item-style-related' with all_products[related_product_id] as product, serial: forloop.index %}
+                          </div>
+                        {% endif %}
+                      {% endif %}
+                      {% if product.metafields.my_fields[look_add_product] != null and i > 2 %}
+                        {% assign related_product_id = product.metafields.my_fields[look_add_product] %}
+                        {% if all_products[related_product_id].id != "" %}
+                          <div class="{{col}} col-12 grid-item {{ grid_item_width }} {% if settings.product_image_border%}grid-item-border {% endif %}"> 
+                            {% render 'product-grid-item-style-related' with all_products[related_product_id] as product, serial: forloop.index %}
+                          </div>
+                        {% endif %}
+                      {% endif %}
+                    {% endfor %}
+                  </div>
+                </div>
+              </div>
+            {%endif%}
+            <div class="widget-title not-before mt-15 mb-30 delivery-and-returntitle">
+              <h3 class="box-title">
+                <span class="title"> 
+                  {{ section.settings.delivery_and_return }}
+                </span>
+              </h3>
+            </div>
+            <div id="delivery-and-return" class="md-block delivery-and-return p-25">
+              <div>
+                {{section.settings.delovery-text}}
+              </div>
+              <div>
+                {{section.settings.return-text}}
+              </div>
+            </div>
+          {% if section.settings.dpl_grouped_product %}
+              {% render 'grouped-block-2' %}
+          {% endif %}
+          <div class="section-wrap mt-45 pb-0 mb-0">
+            <div class="line">
+              <span class="dot"></span>
+            </div>
+            </div>
+          {% assign blocks = section.blocks | where: 'type', 'recommend' %}
+          {% assign block = blocks[0] %}
+
+          {% if section.settings.show_tab == 'horizontal' or section.settings.show_tab == 'horizontal_center' or block.settings.display_related_products %}
+          <div class="product_bottom">
+              {% if section.settings.show_tab == 'horizontal' or section.settings.show_tab == 'horizontal_center' %}
+              {% render 'tab-horizontal' %}
+              {% endif %}
+
+              {% if block.settings.display_related_products %}
+              {% render 'related-products', block: block, product: product %}
+              {% endif %}
+          </div>
+          {% endif %}
+      </div>
+  </div>
+</div>
+<style>
+  /* The Modal (background) */
+#delivery-popup-btn{
+  cursor: pointer;
+}
+.popup {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 10; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.popup-content {
+  background-color: #fefefe;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  padding: 20px;
+  border: 1px solid #888;
+  width: 640px;
+  max-width: 90%;
+  max-height: 90vh;
+  overflow: scroll;
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  z-index: 10;
+  right: 10px;
+  top: 15px;
+  display: block;
+  width: 30px;
+  height: 30px;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.invise{
+  display: none;
+}
+
+</style>
+<div id="delivery-popup" class="popup">
+
+  <!-- Modal content -->
+  <div class="popup-content">
+    <span id="close-popup" class="close">&times;</span>
+    <div class="delivery-and-return">
+      <div>
+        {{section.settings.delovery-text}}
+      </div>
+      <div>
+        {{section.settings.return-text}}
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  //<span  id="show-more" class="show-less invise" href="#show-less">Show less</span>
+                      //<span id="show-less"
+  let block = document.querySelector(".show-hide-text .desc-txt");
+  let innerBlock = document.querySelector(".show-hide-text .desc-txt .inner");
+  var blockOffsetHeight = innerBlock.offsetHeight;
+  var body = document.querySelector('body');
+
+  let show = document.querySelector('#show-more');
+  let hide = document.querySelector('#show-less');
+  if(blockOffsetHeight > 180){
+    show.classList.remove('invise');
+  }
+  show.onclick = function() {
+    block.classList.remove('show-less');
+    show.classList.add('invise');
+    hide.classList.remove('invise');
+  }
+  hide.onclick = function() {
+    block.classList.add('show-less');
+    show.classList.remove('invise');
+    hide.classList.add('invise');
+  }
+
+  var popup = document.getElementById("delivery-popup");
+
+  // Get the button that opens the modal
+  var btn = document.getElementById("delivery-popup-btn");
+
+  // Get the <span> element that closes the modal
+  var span = document.getElementById("close-popup");
+
+  // When the user clicks on the button, open the modal
+  btn.onclick = function() {
+    popup.style.display = "block";
+    body.classList.add("ov-hidden");
+  }
+
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() {
+    popup.style.display = "none";
+    body.classList.remove("ov-hidden");
+  }
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target == popup) {
+      popup.style.display = "none";
+      body.classList.remove("ov-hidden");
+    }
+  }
+
+  var paragraphs = document.getElementsByTagName('p')
+  for (index = 0; index < paragraphs.length; ++index) {
+    if (paragraphs[index].innerHTML == '&nbsp;'){
+      console.log(paragraphs[index]);
+      paragraphs[index].style.display = "none";
+    }
+  }
+
+  toggleVisibility = function() {
+    const myElement = document.getElementById("myElement");
+    myElement.classList.toggle("hidden");
+  }
+
+  respondToVisibility = function(element, callback) {
+    var options = {
+      root: document.documentElement
+    }
+
+    var observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        callback(entry.intersectionRatio > 0);
+      });
+    }, options);
+
+    observer.observe(element);
+  }
+
+  respondToVisibility(document.getElementById("nofify_sold-out"), visible => {
+    let scrollTo = document.getElementById("nofify_sold-out");
+    const feedbackEl = document.getElementById("visibilityFeedback");
+    let btn = document.querySelector(".shopify-product-form .groups-btn");
+    if(visible) {
+      //feedbackEl.innerText = "Visible!";
+      btn.classList.add('invise');
+      scrollTo.scrollIntoView({block: "center", behavior: "smooth"});
+    }
+    else {
+      //feedbackEl.innerText = "Not Visible";
+      btn.classList.remove('invise');
+    }
+  });
+
+  const slider = document.querySelectorAll('.product-img-box .thumb');
+  console.log('>>>>', slider);
+  const total = document.querySelector('.sl-counter .total');
+  const current = document.querySelector('.sl-counter .current');
+  total.innerHTML = slider.length;
+  current.innerHTML = "1";
+
+  const sections = Array.from(slider);
+
+  document.addEventListener('DOMContentLoaded',function(){
+    sections.forEach(function(section){
+      let observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutationRecord) {
+          const currentSlide = document.querySelector('.product-img-box .thumb.slick-active');
+          current.innerHTML = +(currentSlide.dataset.slickIndex) + 1;
+        })
+      });
+      observer.observe(section, { attributes : true, attributeFilter : ['style', 'className'] });
+    })
+  });
+</script>
