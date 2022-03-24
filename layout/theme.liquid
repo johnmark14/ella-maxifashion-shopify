@@ -47,6 +47,9 @@
   <link rel="preload" href="{{ 'layout_style_surfup.css' | asset_url }}" as="style">
   <link rel="preload" href="{{ 'product-supermarket.css' | asset_url }}" as="style">
   <link rel="preload" href="{{ 'jquery.min.js' | asset_url }}" as="script">
+  
+  <!-- John Dev Edits -->
+  {{ 'john-custom.css' | asset_url | stylesheet_tag }}
 
   <!-- Favicon -->
   {% if settings.favicon != blank %}
