@@ -1,0 +1,22 @@
+{% for block in section.blocks %}
+    {% if block.type == 'sub-nav' %}
+    {%- if block.settings.collection == collection.handle and block.settings.link_list != blank -%}
+        <div class="container">
+        test
+        <div class="row">
+            <div class="col-12 p-0-sm">
+            <ul class="collection-sub-nav">
+                {%- assign linklists = linklists[block.settings.link_list].links -%}
+                {% for link in linklists %}
+                <li>
+                    <a href="{{ link.url }}">{{ link.title }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+            </div>
+        </div>
+        </div>
+        {% endif %} 
+    {% endif %}
+<!-- output a header with text -->
+{% endfor %}
