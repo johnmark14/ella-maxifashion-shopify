@@ -1,0 +1,43 @@
+<!-- Custom Code by John ================================================== -->
+<section class="section section-video">
+    <div class="container">
+      {% if section.settings.title != blank %}
+      <div class="widget-title">   
+        <h3 class="box-title">
+            <span class="title"> 
+              {{ section.settings.title }}
+            </span>
+        </h3>
+        {% if section.settings.des != blank %}
+        <p class="des">
+          {{ section.settings.des }}
+        </p>
+        {% endif %}
+      </div>
+      {% endif %}
+    </div>
+  </section>
+{% schema %}
+  {
+    "name": "Product Showcase",
+    "settings" : [
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Section Title",
+            "default": "Product Video"
+        },
+        {
+            "type": "textarea",
+            "id": "des",
+            "label": "Section Description",
+            "default": "Describe this section."
+        }
+    ],
+    "presets": [
+    {
+      "name": "Product Showcase"
+    }
+  ]
+  }
+{% endschema %}
