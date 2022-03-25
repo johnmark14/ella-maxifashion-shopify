@@ -3221,7 +3221,7 @@
           "video_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1733\/9921\/files\/sample_2.mp4?v=1648194068",
           "video_poster": "shopify:\/\/shop_images\/MaxiBG_Mobile_GetIt_900x600_fca00f89-514f-4493-819c-4940429c6d53.jpg",
           "autoplay": true,
-          "controls": false,
+          "controls": true,
           "loop": true
         }
       }
