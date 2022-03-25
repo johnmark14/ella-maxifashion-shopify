@@ -1,0 +1,14 @@
+.section-video {
+   .video-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   }
+    .video-player {
+        width: 80vw;
+
+        @include touch {
+            width: 100%;
+          }
+    }
+}

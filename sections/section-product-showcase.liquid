@@ -1,22 +1,54 @@
 <!-- Custom Code by John ================================================== -->
-<section class="section section-video">
+<link href="https://vjs.zencdn.net/7.18.1/video-js.css" rel="stylesheet" />
+<section class="section section-video" style="margin-bottom: {{section.settings.margin_bottom}}px;">
     <div class="container">
       {% if section.settings.title != blank %}
-      <div class="widget-title">   
-        <h3 class="box-title">
-            <span class="title"> 
-              {{ section.settings.title }}
-            </span>
-        </h3>
-        {% if section.settings.des != blank %}
-        <p class="des">
-          {{ section.settings.des }}
-        </p>
-        {% endif %}
-      </div>
+        <div class="widget-title">   
+          <h3 class="box-title">
+              <span class="title"> 
+                {{ section.settings.title }}
+              </span>
+          </h3>
+          {% if section.settings.des != blank %}
+          <p class="des">
+            {{ section.settings.des }}
+          </p>
+          {% endif %}
+        </div>
       {% endif %}
     </div>
+    <div class="container video-wrapper">
+      <div class="video-player">
+        {% if section.settings.video_url != blank %}
+          <video
+            id="my-video"
+            class="video-js"
+            {%if section.settings.autoplay==true%}autoplay{%endif%}
+            {%if section.settings.controls == true%}
+            controls
+            {%endif%}
+            loop={{section.settings.loop}}
+            preload="true"
+            fluid=true
+            aspectRatio="16:9"
+            poster="{{section.settings.video_poster | image_url: 'master' }}"
+            data-setup='{}'
+            >
+            <source src="{{section.settings.video_url}}" type="video/mp4" />
+            <p class="vjs-no-js">
+              To view this video please enable JavaScript, and consider upgrading to a
+              web browser that
+              <a href="https://videojs.com/html5-video-support/" target="_blank"
+                >supports HTML5 video</a
+              >
+            </p>
+          </video>
+        {% endif %}
+      </div>
+    </div>
   </section>
+  
+  <script src="https://vjs.zencdn.net/7.18.1/video.min.js"></script>
 {% schema %}
   {
     "name": "Product Showcase",
@@ -32,6 +64,54 @@
             "id": "des",
             "label": "Section Description",
             "default": "Describe this section."
+        },
+        {
+          "type": "range",
+          "id": "margin_bottom",
+          "label": "Section padding bottom",
+          "min": 20,
+          "max": 100,
+          "step": 10,
+          "unit": "px",
+          "default": 20
+        },
+        {
+          "type": "header",
+          "content": "Video URL",
+          "info": "Paste here the video URL from shopify CDN."
+        },
+        {
+          "type": "text",
+          "id": "video_url",
+          "label": "Video URL",
+          "info": "Video file type should be MP4 and make sure the video will not exceed 20mb in size."
+        },
+        {
+          "type": "image_picker",
+          "id": "video_poster",
+          "label": "Video Poster"
+        },
+        {
+          "type": "header",
+          "content": "Video Settings"
+        },
+        {
+          "type": "checkbox",
+          "id": "autoplay",
+          "label": "Autoplay",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "controls",
+          "label": "Show Controls",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "loop",
+          "label": "Loop",
+          "default": true
         }
     ],
     "presets": [

@@ -6,3 +6,23 @@
   right: unset !important;
   left: 0;
 }
+
+.section-video .video-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.section-video .video-player {
+  width: 80vw;
+}
+@media screen and (max-width: 1023px) {
+  .section-video .video-player {
+    width: 100%;
+  }
+}
