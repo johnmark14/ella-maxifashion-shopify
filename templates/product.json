@@ -1,1 +1,310 @@
-{"sections":{"main":{"type":"main-product","blocks":{"9e63d273-20b8-48d8-a3dc-f60a538db1ed":{"type":"sidebar_product","settings":{"display_sidebar":false,"show_sidebar":"left","enable_categories":true,"title_categories":"Колекции","style_categories":"style_main_menu","link_list":"","enable_product":true,"title_product":"Свързани продукти","collection":"smart-collection-13","limit":"1","enable_img_1":true,"link_img_1":"shopify:\/\/collections\/cosmopolitan","enable_img_2":false,"link_img_2":"shopify:\/\/collections\/all","enable_custom_block":false,"title_custom_block":"Custom Block","quote_custom_block":"<p>Custom CMS block displayed at the left sidebar on the Catalog Page. Put your own content here: text, html, images, media... whatever you like.<\/p><p><\/p><p>There are many similar sample content placeholders across the store. All editable from admin panel.<\/p>"}},"bf9a40c8-0a1a-401b-b635-e3f5e99b4673":{"type":"recommend","settings":{"display_related_products":true,"related_products_title":"Виж какво пазаруват другите","number_of_related_products":"8","related_products_per_row":"4"}},"ebe8ded2-b7f9-4494-8b5a-35c41801863d":{"type":"product-banner","settings":{"display":false,"alignment":"center","video_type":"mp4","video_link":"","banner_heading":"Metropolis","font_size_banner_heading":"40px","color_banner_heading":"#ffffff","banner_heading_sub":"","font_size_banner_heading_sub":"16px","color_banner_heading_sub":"#ffffff","banner_des":"Pellentesque posuere orci lobortis scelerisque blandit. Donec id tellus lacinia an tincidunt risus an consequat delit quisquemos.","font_size_banner_des":"12p16px","color_banner_des":"#ffffff","banner_button":"Shop Now","link":"","bg_banner_button":"#ffffff","border_banner_button":"#5a5a5a","color_banner_button":"#232323","bg_banner_button_hover":"","border_banner_button_hover":"","color_banner_button_hover":""}}},"block_order":["9e63d273-20b8-48d8-a3dc-f60a538db1ed","bf9a40c8-0a1a-401b-b635-e3f5e99b4673","ebe8ded2-b7f9-4494-8b5a-35c41801863d"],"settings":{"delivery_and_return":"Доставка и връщане","delovery-text":"<p><strong>ДОСТАВКА<\/strong><\/p><p><strong>Време за доставка: <\/strong>експресна доставка за 1 работен ден.<\/p><p><strong>Цена за доставка: <\/strong>безплатна доставка за поръчки на стойност над 130лв.<\/p><p>За поръчки до 129.99 лв. цената за доставка е 4.99 лв.<\/p><p><\/p><p><strong>Куриерски фирми, с които доставяме: <\/strong>Еконт, Спийди,  с включени опции преглед, тест и sms известяване.<\/p><p><a href=\"https:\/\/www.maxifashion.bg\/pages\/page-3\" title=\"https:\/\/www.maxifashion.bg\/pages\/page-3\"><span style=\"text-decoration:underline\">Повече информация за доставката<\/span><\/a><\/p>","return-text":"<p><strong>ВРЪЩАНЕ И ЗАМЯНА<\/strong><\/p><p><strong>Срок за връщане: <\/strong>Можете да върнете продуктите в срок от 30 календарни дни без да посочвате причина за това. <\/p><p><strong>Замяна: <\/strong>можете да замените закупен продукт като попълните формуляра за Замяна\/Връщане, който ще получите с Вашата пратка. <\/p><p><a href=\"https:\/\/www.maxifashion.bg\/pages\/page-2\" title=\"https:\/\/www.maxifashion.bg\/pages\/page-2\"><span style=\"text-decoration:underline\">Повече информация за Връщане и Замяна<\/span><\/a><\/p>","use-meta":true,"additional-heading":"Детайли за продукта","fields":"waist:Вид закопчаване,length:Дължина,decollete:Деколте,composition:Състав,sleeve_length:Дължина ръкав,sewing:Кройка,care_and_washing:Грижа и пране,_model_on_photo_size:Моделът е облечен с размер,ellastic:Еластичност","style_moreview":"left_vertical","enable_zoom_image":true,"enable_zoom_text":true,"enable_payment_button":false,"enable_hot_stock":true,"number_stock":"3","show_sold_in":false,"item_prd":"3,5,6,7,8,10,12,15","item_prds":"sold in last","hours_prs":"10,15,16,17,18,20,25,35","item_hours":"hours","display_vendor":false,"text_vendor":"Vendor:","display_product_sku":true,"text_product_sku":"Код:","display_availability":false,"text_availability":"","display_product_type":false,"text_product_type":"Product Type:","enable_countdown":false,"countdown":"countdown_1","text_countdown":"Limited-Time Offers, End in:","option_countdown":"different_product","count_down_timer":"2022-07-17 22:11:00","custombox_text":"","progressbar_1":"Please hurry, only","progressbar_2":"left in stock","total_items":"100","min_items_left":"8","max_items_left":"26","progressbar_color":"#f5f5f5","progressbar_active_color":"#69c69c","dpl_customers_view":false,"title_view":"customers are viewing this product","number_view":"283, 100, 59, 11, 14, 185, 193, 165, 50, 38, 99, 112, 46, 10, 125, 200, 250, 18","show_desc":"no-show","display_subtotal":false,"display_qty":false,"display_product_detail_tag":false,"display_product_detail_share":false,"share_text":"Share","display_trust_img":true,"show_tab":"horizontal_center","display_product_detail_description":false,"product_description_title":"Описание","display_product_reviews":false,"product_review_title":"Customer Reviews","display_custom_tab_1":false,"custom_tab_title_1":"","custom_tab_content_1":"<h4>ДОСТАВКА ЗА ЦЯЛА БЪЛГАРИЯ<\/h4>\n<div class=\"rte\">\n  <p>Уважаеми клиенти, наблюдава се забавяне на доставките до адрес, поради натовареност на куриерската фирма, която обслужва тези пратки. Забавянето в някои населени места, вкл. град Бургас е в рамките на 3-4 дни. Съветваме Ви при възможност да изберете доставка до офис на Еконт, за да получите пратката си на следващия ден.<\/p>\n<p>За повече информация Ви очакваме на 0883 900 111 или на имейл shop@maxifashion.bg <\/p>\n<p>Maxifashion.bg е в процес на договаряне с още куриерски фирми, за да можете да получавате пратките си в обещания 24 часов срок.<\/p>\n<p>Извиняваме се на всички за причиненото неудобство и Ви благодарим за доверието.<\/p>\n<p>1.Ако поръчам днес, кога ще получа пратката си?<\/p>\n<div dir=\"auto\"><\/div>\n<div dir=\"auto\">Ако поръчате в рамките на работния ден до 16:00ч., ще получите пратката си още на следващия ден.<\/div>\n<div dir=\"auto\"><\/div>\n<div dir=\"auto\"><\/div>\n<div dir=\"auto\">2. Каква е цената за доставка?<\/div>\n<div dir=\"auto\"><\/div>\n<div dir=\"auto\"><\/div>\n<div dir=\"auto\"><\/div>\n<div dir=\"auto\"><strong> <\/strong><\/div>\n<div dir=\"auto\"><\/div>\n<p>Доставка за <strong>1 ден<\/strong> до <strong>офис<\/strong> Еконт – 4<strong>.99 лв.<\/strong> <\/p>\n<p>Доставка за <strong>2-3 дни<\/strong> до <b>адрес <\/b>– 4<strong>.99 лв. <\/strong><\/p>\n<p><strong>Безплатна, експресна доставка<\/strong> за 1 ден за поръчки <strong>над 130 лв. <\/strong><\/p>\n<p>Поръчки, направени в делнични дни до 16:00ч. се доставят на следващия ден.<\/p>\n<p>Всички наши продукти се доставят с опция <strong>ПРЕГЛЕД<\/strong> и <strong>ТЕСТ<\/strong>.  <\/p>\n<meta charset=\"utf-8\">\n<p><span>Поръчки могат да се правят денонощно на нашия сайт, но ако желаете връзка с наш консултант, ще Ви очакваме на ‎0883 900 111 или 0885 760 900. <\/span>Освен в сайта, можете да направите поръчка:<\/p>\n<p>1. По телефона на 0883 900 111 или 0885 760 900<\/p>\n<p>2. Да ни пишете на shop@maxifashion.bg<\/p>\n<p>3. Във фейсбук (Maxifashion Елегантна Макси Мода)<\/p>\n<p>4. На нашия чат, който ще намерите в долния десен ъгъл на всяка страница<\/p>\n<p> Моля, не забравяйте да ни напишете:<\/p>\n<p>1. Моделът, който желаете - цвят и размер<\/p>\n<p>2. Вашето име<\/p>\n<p>3. Адрес (офис на Еконт или домашен\/служебен адрес)<\/p>\n<p>4. Номерът на Вашия телефон (необходим е на куриерската фирма)<\/p>\n<p>Можете да ни пишете денонощно. Ще се свържем с Вас при първа възможност.<\/p>\n<p>Производството и продуктите ни на сайта са в ограничени количества, затова ако много харесвате даден модел и желаете да го имате в гардероба си, Ви препоръчваме да поръчате веднага щом има наличен от Вашия размер.<\/p>\n<p> Поръчки се обработват в следното работно време:<\/p>\n<p>От понеделник до събота от 09:00 до 16:00ч.<\/p>\n<p>Поръчки, направени след 16:00 ч. от понеделник до четвъртък, се обработват на следващата сутрин след 09:00ч.<\/p>\n<p>Поръчки, направени след 16:00ч. в петък, се обработват в понеделник след 09:00ч.<\/p>\n<p>С радост ще отговорим на Вашите въпроси. Очакваме Ви на shop@maxifashion.bg и на тел. ‎0883 900 111; 0885 760 900  <\/p>\n<\/div>","display_custom_tab_2":false,"custom_tab_title_2":"Custom Product Tab","custom_tab_content_2":"<p>Nam tempus turpis at metus scelerisque placerat nulla deumantos solicitud felis. Pellentesque diam dolor, elementum etos lobortis des mollis ut risus. Sedcus faucibus an sullamcorper mattis drostique des commodo pharetras loremos.Donec pretium egestas sapien et mollis. Pellentesque diam dolor cosmopolis etos lobortis.<\/p>\n<dl>\n<dt>Comodous:<\/dt>\n<dd>Comodous in tempor ullamcorper miaculis<\/dd>\n<\/dl>\n<dl>\n<dt>Mattis laoreet:<\/dt>\n<dd>Pellentesque vitae neque mollis urna mattis laoreet.<\/dd>\n<\/dl>\n<dl>\n<dt>Divamus de ametos:<\/dt>\n<dd>Divamus sit amet purus justo.<\/dd>\n<\/dl>\n<dl>\n<dt>Molestie:<\/dt>\n<dd>Proin molestie egestas orci ac suscipit risus posuere loremous<\/dd>\n<\/dl>","display_custom_tab_3":false,"custom_tab_title_3":"ВРЪЩАНЕ И ЗАМЯНА","custom_tab_content_3":"<div class=\"rte\">\n  <p>С всяка доставка ще получите лесен за използване формуляр за Замяна\/Връщане.<\/p>\n<p>Срещу артикула, който искате да замените или върнете напишете единствено код А (заменям) или код B (връщам). Разбира се, може да го изпишете и с думи.<\/p>\n<p>Ако заменяте продукт, не забравяйте да уточните кой е продукта, който искате да получите - арт. номер, цвят, размер. В случай, че се нуждаете от консултация, ще се радваме да помогнем с избора Ви на 0883 900 111 или<\/p>\n<meta charset=\"utf-8\">\n<p><span>0885 760 900<\/span><\/p>\n<p>Ако връщате продукт, напишете в полето за IBAN банковата си сметка и в рамките на 14 работни дни ще извършим превода. Моля, имайте предвид, че Maxifashion.bg не оперира с парични преводи по куриер. Изплащането на сумите можем да извършваме единствено по банков път. Благодарим Ви за разбирането. <\/p>\n<p>За да върнете или замените продукт, не е необходимо да ни уведомявате по телефона. Попълването и изпращането на формуляра е необходимото и достатъчно условие. Ако сте загубили Вашия формуляр, поемете въздух :) и вземете едно листче, на което да ни напишете какво искате да получите в замяна или просто ни се обадете на 0883 900 111 или 0885 760 900<\/p>\n<p> Моля, обърнете внимание, че имате избор от два начина да ни върнете продукт:<\/p>\n<p>1. Връщане към офис на Еконт - Върнете продуктите до офис на ЕКОНТ ОРИОН София за Макси фешън груп ООД или просто продиктувайте нашия номер на куриера 0883 900 111. Връщането ще струва около 5-6 лв.<\/p>\n<p>2. Връщане до адрес - Адресът ни е гр. София, кв. Люлин 8, ул. 329 N6 (за Макси фешън груп ООД) Тел. 0883 900 111<\/p>\n<p><span>Стараем се да обработваме замените в най-кратък срок, но <\/span><span>в натоварен <\/span><span>период<\/span><span> това може да отнеме една седмица. Благодарим Ви за разбирането :)<\/span><\/p>\n<p>Ние не задаваме въпроси. Няма нищо по-лесно от това да ни върнете или замените дрехата, която сте закупили.<br><br>Не е точния размер? Веднага ще изпратим Вашия.<br><br>Не Ви допада модела? Върнете ни го, ние няма да Ви питаме защо!<br><br>Доставен е грешния цвят\/размер по наша вина? Веднага ще направим размяната като поемем, разбира се, разходите и в двете посоки.<br><br>В срок от 14 календарни дни след получаване на Вашата дреха в офиса на куриера, можете да я върнете или замените. Достатъчно е само да е:<br><br>1. Запазен добър търговски вид, напълно запазена опаковка (стоката не е скъсана, надраскана, носена, прана, гладена).<br>2. Не са налице повреди, причинени от неправилна употреба.<br>3. Запазена оригинална опаковка, консумативи и аксесоари, в случай, че е имало включени такива.<br>4. Транспортните разходи за връщане или замяна на стока са за сметка на клиента. (В случай на замяна на стока клиентът заплаща 2 куриерска такси за транспорт в двете посоки).<br>5. Доставки не се извършват в неделя и официални празници.<br>6. Възстановяването на сумата става по банков път на лична сметка на клиента, в рамките на 14 работни дни от получаването на върнатата стока, като се стараем този период да не надвишава една календарна седмица. <\/p>\n<meta charset=\"utf-8\">\n<p><span>    В случай, че клиентът се е възползвал от правото на безплатна доставка, но при връщане на продуктите, взетите<\/span><span> от него не отговарят на условието за такава, сумата за доставката ще бъде приспадната при банковия превод. <\/span><\/p>\n<p><span>Пример: Вие сте поръчали продукти на стойност 135лв. и Maxifashion.bg е изпратила пратката за своя сметка. След 2 дни решавате да върнете част от продуктите на стойност 35лв., и така Вашата дължима сума към Maxifashion.bg вече е 100лв., т.е. не попада в условията за безплатна доставка. В този случай Maxifashion.bg ще удържи сумата от 4.99лв.<\/span><\/p>\n<\/div>","display_custom_tab_4":false,"custom_tab_title_4":"Custom Tab 4","custom_tab_content_4":"Custom Tab Content 4","display_custom_tab_5":false,"custom_tab_title_5":"Custom Tab 5","custom_tab_content_5":"Custom Tab Content 5","dpl_lookbook_description":false,"style_lookbook_description":"all_product","quote_title":"Sample Block Quote","quote_des":"Praesent vestibulum congue tellus at fringilla. Curabitur vitae semper sem, eu convallis est. Cras felis nunc commodo loremous convallis vitae interdum non nisl. Maecenas ac est sit amet augue pharetra convallis nec danos.","quote_title_2":"Sample Paragraph Text","quote_des_2":"<p>\nPraesent vestibulum congue tellus at fringilla. Curabitur vitae semper sem, eu convallis est. Cras felis nunc commodo eu convallis vitae interdum non nisl. Maecenas ac est sit amet augue pharetra convallis nec danos dui.\n<\/p>\n<p>\nCras suscipit quam et turpis eleifend vitae malesuada magna congue. Damus id ullamcorper neque. Sed vitae mi a mi pretium aliquet ac sed elitos. Pellentesque nulla eros accumsan quis justo at tincidunt lobortis denimes loremous. Suspendisse vestibulum lectus in lectus volutpat, ut dapibus purus pulvinar. Vestibulum sit amet auctor ipsum.\n<\/p>","dpl_gallery_lookbook":false,"style_lookbook_gallery":"different_product","dpl_grouped_product":true,"grouped_product_style":"style_1","grouped_title":"Frequently Bought Together","grouped_choose_options_text":"Please choose options for all selected products","choose_options":"Choose Options","enable_bundle_discount":true,"bundle_discount_text":"Get a [discount]% discount buying these products together | Erhalten Sie einen Rabatt von [discount]%, wenn Sie diese Produkte zusammen kaufen"}},"recently-view":{"type":"recently-viewed-products","disabled":true,"settings":{"display_recently_viewed_products":true,"recently_viewed_products_title":"Наскоро гледахте","number_of_recently_viewed_products":"8","recently_viewed_products_per_row":"4"}},"1645286477f2bbd20e":{"type":"newsletter-block","disabled":true,"blocks":{"1645286477535c9a55-0":{"type":"image","disabled":true,"settings":{"banner_title":"Newsletter Sign Up","font_size_banner_title":"20px","color_banner_title":"#ffffff","banner_heading":"Receive our latest updates about our products and promotions.","font_size_banner_heading":"12px","color_banner_heading":"#ffffff","ft_input":"#ffffff","ft_input_br":"#ffffff","ft_input_text":"#5f5f5f","ft_submit":"#0f0f0f","ft_submit_br":"#0f0f0f","ft_submit_text":"#ffffff","ft_submit_hover":"#ffffff","ft_submit_br_hover":"#232323","ft_submit_text_hover":"#232323"}}},"block_order":["1645286477535c9a55-0"],"settings":{"display_block_newsletter":true,"margin_bottom_mb":0,"margin_bottom_tab":0,"margin_bottom":0}},"16452865433a6f4a17":{"type":"home-customer-reviews","disabled":true,"blocks":{"1645286543c50b70ef-0":{"type":"Review","settings":{"enable_image":true,"reviews_heading":"Awesome...","rating":"star5","reviews_purchased_text":"Purchased:","reviews_title":"Title","reviews_link":"","body_review":"Nam tempus turpis at metus scelerisque placerat nulla deumantos delo sollicitudin delos felis. Pellentesque diam dolor an elementum et lobortis at mollis ut risus. Curabitur semper sagittis mi condimentum...","name":"Customer Name","date_review":"Wednesday, Jan 26, 2019"}},"1645286543c50b70ef-1":{"type":"Review","settings":{"enable_image":true,"reviews_heading":"Awesome...","rating":"star5","reviews_purchased_text":"Purchased:","reviews_title":"Title","reviews_link":"","body_review":"Nam tempus turpis at metus scelerisque placerat nulla deumantos delo sollicitudin delos felis. Pellentesque diam dolor an elementum et lobortis at mollis ut risus. Curabitur semper sagittis mi condimentum...","name":"Customer Name","date_review":"Wednesday, Jan 26, 2019"}},"1645286543c50b70ef-2":{"type":"Review","settings":{"enable_image":true,"reviews_heading":"Awesome...","rating":"star5","reviews_purchased_text":"Purchased:","reviews_title":"Title","reviews_link":"","body_review":"Nam tempus turpis at metus scelerisque placerat nulla deumantos delo sollicitudin delos felis. Pellentesque diam dolor an elementum et lobortis at mollis ut risus. Curabitur semper sagittis mi condimentum...","name":"Customer Name","date_review":"Wednesday, Jan 26, 2019"}}},"block_order":["1645286543c50b70ef-0","1645286543c50b70ef-1","1645286543c50b70ef-2"],"settings":{"space_on":20,"space_below":25,"bg_color":"#f7f9fb","layout_style":"style_1","title":"Customer Reviews","des":"","title_style":"style_1","per_row":"3"}},"164528660180f8326f":{"type":"line-block","disabled":true,"settings":{}},"164528664767881cb9":{"type":"home-rich-text","disabled":true,"settings":{"heading":"","content_top":"","content_bottom":"","font_size":"14px","text_alignment":"center","button_text_more":"Read More","button_text_less":"Read Less","color_text":"","margin_bottom_mb":50,"margin_bottom_tab":65,"margin_bottom":65}}},"order":["main","recently-view","1645286477f2bbd20e","16452865433a6f4a17","164528660180f8326f","164528664767881cb9"]}
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "9e63d273-20b8-48d8-a3dc-f60a538db1ed": {
+          "type": "sidebar_product",
+          "settings": {
+            "display_sidebar": false,
+            "show_sidebar": "left",
+            "enable_categories": true,
+            "title_categories": "Колекции",
+            "style_categories": "style_main_menu",
+            "link_list": "",
+            "enable_product": true,
+            "title_product": "Свързани продукти",
+            "collection": "smart-collection-13",
+            "limit": "1",
+            "enable_img_1": true,
+            "link_img_1": "shopify:\/\/collections\/cosmopolitan",
+            "enable_img_2": false,
+            "link_img_2": "shopify:\/\/collections\/all",
+            "enable_custom_block": false,
+            "title_custom_block": "Custom Block",
+            "quote_custom_block": "<p>Custom CMS block displayed at the left sidebar on the Catalog Page. Put your own content here: text, html, images, media... whatever you like.<\/p><p><\/p><p>There are many similar sample content placeholders across the store. All editable from admin panel.<\/p>"
+          }
+        },
+        "bf9a40c8-0a1a-401b-b635-e3f5e99b4673": {
+          "type": "recommend",
+          "settings": {
+            "display_related_products": true,
+            "related_products_title": "Виж какво пазаруват другите",
+            "number_of_related_products": "8",
+            "related_products_per_row": "4"
+          }
+        },
+        "ebe8ded2-b7f9-4494-8b5a-35c41801863d": {
+          "type": "product-banner",
+          "settings": {
+            "display": false,
+            "alignment": "center",
+            "video_type": "mp4",
+            "video_link": "",
+            "banner_heading": "Metropolis",
+            "font_size_banner_heading": "40px",
+            "color_banner_heading": "#ffffff",
+            "banner_heading_sub": "",
+            "font_size_banner_heading_sub": "16px",
+            "color_banner_heading_sub": "#ffffff",
+            "banner_des": "Pellentesque posuere orci lobortis scelerisque blandit. Donec id tellus lacinia an tincidunt risus an consequat delit quisquemos.",
+            "font_size_banner_des": "12p16px",
+            "color_banner_des": "#ffffff",
+            "banner_button": "Shop Now",
+            "link": "",
+            "bg_banner_button": "#ffffff",
+            "border_banner_button": "#5a5a5a",
+            "color_banner_button": "#232323",
+            "bg_banner_button_hover": "",
+            "border_banner_button_hover": "",
+            "color_banner_button_hover": ""
+          }
+        }
+      },
+      "block_order": [
+        "9e63d273-20b8-48d8-a3dc-f60a538db1ed",
+        "bf9a40c8-0a1a-401b-b635-e3f5e99b4673",
+        "ebe8ded2-b7f9-4494-8b5a-35c41801863d"
+      ],
+      "settings": {
+        "delivery_and_return": "Доставка и връщане",
+        "delovery-text": "<p><strong>ДОСТАВКА<\/strong><\/p><p><strong>Време за доставка: <\/strong>експресна доставка за 1 работен ден.<\/p><p><strong>Цена за доставка: <\/strong>безплатна доставка за поръчки на стойност над 130лв.<\/p><p>За поръчки до 129.99 лв. цената за доставка е 4.99 лв.<\/p><p><\/p><p><strong>Куриерски фирми, с които доставяме: <\/strong>Еконт, Спийди,  с включени опции преглед, тест и sms известяване.<\/p><p><a href=\"https:\/\/www.maxifashion.bg\/pages\/page-3\" title=\"https:\/\/www.maxifashion.bg\/pages\/page-3\"><span style=\"text-decoration:underline\">Повече информация за доставката<\/span><\/a><\/p>",
+        "return-text": "<p><strong>ВРЪЩАНЕ И ЗАМЯНА<\/strong><\/p><p><strong>Срок за връщане: <\/strong>Можете да върнете продуктите в срок от 30 календарни дни без да посочвате причина за това. <\/p><p><strong>Замяна: <\/strong>можете да замените закупен продукт като попълните формуляра за Замяна\/Връщане, който ще получите с Вашата пратка. <\/p><p><a href=\"https:\/\/www.maxifashion.bg\/pages\/page-2\" title=\"https:\/\/www.maxifashion.bg\/pages\/page-2\"><span style=\"text-decoration:underline\">Повече информация за Връщане и Замяна<\/span><\/a><\/p>",
+        "use-meta": true,
+        "additional-heading": "Детайли за продукта",
+        "fields": "waist:Вид закопчаване,length:Дължина,decollete:Деколте,composition:Състав,sleeve_length:Дължина ръкав,sewing:Кройка,care_and_washing:Грижа и пране,_model_on_photo_size:Моделът е облечен с размер,ellastic:Еластичност",
+        "style_moreview": "left_vertical",
+        "enable_zoom_image": true,
+        "enable_zoom_text": true,
+        "enable_payment_button": false,
+        "enable_hot_stock": true,
+        "number_stock": "3",
+        "show_sold_in": false,
+        "item_prd": "3,5,6,7,8,10,12,15",
+        "item_prds": "sold in last",
+        "hours_prs": "10,15,16,17,18,20,25,35",
+        "item_hours": "hours",
+        "display_vendor": false,
+        "text_vendor": "Vendor:",
+        "display_product_sku": true,
+        "text_product_sku": "Код:",
+        "display_availability": false,
+        "text_availability": "",
+        "display_product_type": false,
+        "text_product_type": "Product Type:",
+        "enable_countdown": false,
+        "countdown": "countdown_1",
+        "text_countdown": "Limited-Time Offers, End in:",
+        "option_countdown": "different_product",
+        "count_down_timer": "2022-07-17 22:11:00",
+        "custombox_text": "",
+        "progressbar_1": "Please hurry, only",
+        "progressbar_2": "left in stock",
+        "total_items": "100",
+        "min_items_left": "8",
+        "max_items_left": "26",
+        "progressbar_color": "#f5f5f5",
+        "progressbar_active_color": "#69c69c",
+        "dpl_customers_view": false,
+        "title_view": "customers are viewing this product",
+        "number_view": "283, 100, 59, 11, 14, 185, 193, 165, 50, 38, 99, 112, 46, 10, 125, 200, 250, 18",
+        "show_desc": "no-show",
+        "display_subtotal": false,
+        "display_qty": false,
+        "display_product_detail_tag": false,
+        "display_product_detail_share": false,
+        "share_text": "Share",
+        "display_trust_img": true,
+        "show_tab": "horizontal_center",
+        "display_product_detail_description": false,
+        "product_description_title": "Описание",
+        "display_product_reviews": false,
+        "product_review_title": "Customer Reviews",
+        "display_custom_tab_1": false,
+        "custom_tab_title_1": "",
+        "custom_tab_content_1": "<h4>ДОСТАВКА ЗА ЦЯЛА БЪЛГАРИЯ<\/h4>\n<div class=\"rte\">\n  <p>Уважаеми клиенти, наблюдава се забавяне на доставките до адрес, поради натовареност на куриерската фирма, която обслужва тези пратки. Забавянето в някои населени места, вкл. град Бургас е в рамките на 3-4 дни. Съветваме Ви при възможност да изберете доставка до офис на Еконт, за да получите пратката си на следващия ден.<\/p>\n<p>За повече информация Ви очакваме на 0883 900 111 или на имейл shop@maxifashion.bg <\/p>\n<p>Maxifashion.bg е в процес на договаряне с още куриерски фирми, за да можете да получавате пратките си в обещания 24 часов срок.<\/p>\n<p>Извиняваме се на всички за причиненото неудобство и Ви благодарим за доверието.<\/p>\n<p>1.Ако поръчам днес, кога ще получа пратката си?<\/p>\n<div dir=\"auto\"><\/div>\n<div dir=\"auto\">Ако поръчате в рамките на работния ден до 16:00ч., ще получите пратката си още на следващия ден.<\/div>\n<div dir=\"auto\"><\/div>\n<div dir=\"auto\"><\/div>\n<div dir=\"auto\">2. Каква е цената за доставка?<\/div>\n<div dir=\"auto\"><\/div>\n<div dir=\"auto\"><\/div>\n<div dir=\"auto\"><\/div>\n<div dir=\"auto\"><strong> <\/strong><\/div>\n<div dir=\"auto\"><\/div>\n<p>Доставка за <strong>1 ден<\/strong> до <strong>офис<\/strong> Еконт – 4<strong>.99 лв.<\/strong> <\/p>\n<p>Доставка за <strong>2-3 дни<\/strong> до <b>адрес <\/b>– 4<strong>.99 лв. <\/strong><\/p>\n<p><strong>Безплатна, експресна доставка<\/strong> за 1 ден за поръчки <strong>над 130 лв. <\/strong><\/p>\n<p>Поръчки, направени в делнични дни до 16:00ч. се доставят на следващия ден.<\/p>\n<p>Всички наши продукти се доставят с опция <strong>ПРЕГЛЕД<\/strong> и <strong>ТЕСТ<\/strong>.  <\/p>\n<meta charset=\"utf-8\">\n<p><span>Поръчки могат да се правят денонощно на нашия сайт, но ако желаете връзка с наш консултант, ще Ви очакваме на ‎0883 900 111 или 0885 760 900. <\/span>Освен в сайта, можете да направите поръчка:<\/p>\n<p>1. По телефона на 0883 900 111 или 0885 760 900<\/p>\n<p>2. Да ни пишете на shop@maxifashion.bg<\/p>\n<p>3. Във фейсбук (Maxifashion Елегантна Макси Мода)<\/p>\n<p>4. На нашия чат, който ще намерите в долния десен ъгъл на всяка страница<\/p>\n<p> Моля, не забравяйте да ни напишете:<\/p>\n<p>1. Моделът, който желаете - цвят и размер<\/p>\n<p>2. Вашето име<\/p>\n<p>3. Адрес (офис на Еконт или домашен\/служебен адрес)<\/p>\n<p>4. Номерът на Вашия телефон (необходим е на куриерската фирма)<\/p>\n<p>Можете да ни пишете денонощно. Ще се свържем с Вас при първа възможност.<\/p>\n<p>Производството и продуктите ни на сайта са в ограничени количества, затова ако много харесвате даден модел и желаете да го имате в гардероба си, Ви препоръчваме да поръчате веднага щом има наличен от Вашия размер.<\/p>\n<p> Поръчки се обработват в следното работно време:<\/p>\n<p>От понеделник до събота от 09:00 до 16:00ч.<\/p>\n<p>Поръчки, направени след 16:00 ч. от понеделник до четвъртък, се обработват на следващата сутрин след 09:00ч.<\/p>\n<p>Поръчки, направени след 16:00ч. в петък, се обработват в понеделник след 09:00ч.<\/p>\n<p>С радост ще отговорим на Вашите въпроси. Очакваме Ви на shop@maxifashion.bg и на тел. ‎0883 900 111; 0885 760 900  <\/p>\n<\/div>",
+        "display_custom_tab_2": false,
+        "custom_tab_title_2": "Custom Product Tab",
+        "custom_tab_content_2": "<p>Nam tempus turpis at metus scelerisque placerat nulla deumantos solicitud felis. Pellentesque diam dolor, elementum etos lobortis des mollis ut risus. Sedcus faucibus an sullamcorper mattis drostique des commodo pharetras loremos.Donec pretium egestas sapien et mollis. Pellentesque diam dolor cosmopolis etos lobortis.<\/p>\n<dl>\n<dt>Comodous:<\/dt>\n<dd>Comodous in tempor ullamcorper miaculis<\/dd>\n<\/dl>\n<dl>\n<dt>Mattis laoreet:<\/dt>\n<dd>Pellentesque vitae neque mollis urna mattis laoreet.<\/dd>\n<\/dl>\n<dl>\n<dt>Divamus de ametos:<\/dt>\n<dd>Divamus sit amet purus justo.<\/dd>\n<\/dl>\n<dl>\n<dt>Molestie:<\/dt>\n<dd>Proin molestie egestas orci ac suscipit risus posuere loremous<\/dd>\n<\/dl>",
+        "display_custom_tab_3": false,
+        "custom_tab_title_3": "ВРЪЩАНЕ И ЗАМЯНА",
+        "custom_tab_content_3": "<div class=\"rte\">\n  <p>С всяка доставка ще получите лесен за използване формуляр за Замяна\/Връщане.<\/p>\n<p>Срещу артикула, който искате да замените или върнете напишете единствено код А (заменям) или код B (връщам). Разбира се, може да го изпишете и с думи.<\/p>\n<p>Ако заменяте продукт, не забравяйте да уточните кой е продукта, който искате да получите - арт. номер, цвят, размер. В случай, че се нуждаете от консултация, ще се радваме да помогнем с избора Ви на 0883 900 111 или<\/p>\n<meta charset=\"utf-8\">\n<p><span>0885 760 900<\/span><\/p>\n<p>Ако връщате продукт, напишете в полето за IBAN банковата си сметка и в рамките на 14 работни дни ще извършим превода. Моля, имайте предвид, че Maxifashion.bg не оперира с парични преводи по куриер. Изплащането на сумите можем да извършваме единствено по банков път. Благодарим Ви за разбирането. <\/p>\n<p>За да върнете или замените продукт, не е необходимо да ни уведомявате по телефона. Попълването и изпращането на формуляра е необходимото и достатъчно условие. Ако сте загубили Вашия формуляр, поемете въздух :) и вземете едно листче, на което да ни напишете какво искате да получите в замяна или просто ни се обадете на 0883 900 111 или 0885 760 900<\/p>\n<p> Моля, обърнете внимание, че имате избор от два начина да ни върнете продукт:<\/p>\n<p>1. Връщане към офис на Еконт - Върнете продуктите до офис на ЕКОНТ ОРИОН София за Макси фешън груп ООД или просто продиктувайте нашия номер на куриера 0883 900 111. Връщането ще струва около 5-6 лв.<\/p>\n<p>2. Връщане до адрес - Адресът ни е гр. София, кв. Люлин 8, ул. 329 N6 (за Макси фешън груп ООД) Тел. 0883 900 111<\/p>\n<p><span>Стараем се да обработваме замените в най-кратък срок, но <\/span><span>в натоварен <\/span><span>период<\/span><span> това може да отнеме една седмица. Благодарим Ви за разбирането :)<\/span><\/p>\n<p>Ние не задаваме въпроси. Няма нищо по-лесно от това да ни върнете или замените дрехата, която сте закупили.<br><br>Не е точния размер? Веднага ще изпратим Вашия.<br><br>Не Ви допада модела? Върнете ни го, ние няма да Ви питаме защо!<br><br>Доставен е грешния цвят\/размер по наша вина? Веднага ще направим размяната като поемем, разбира се, разходите и в двете посоки.<br><br>В срок от 14 календарни дни след получаване на Вашата дреха в офиса на куриера, можете да я върнете или замените. Достатъчно е само да е:<br><br>1. Запазен добър търговски вид, напълно запазена опаковка (стоката не е скъсана, надраскана, носена, прана, гладена).<br>2. Не са налице повреди, причинени от неправилна употреба.<br>3. Запазена оригинална опаковка, консумативи и аксесоари, в случай, че е имало включени такива.<br>4. Транспортните разходи за връщане или замяна на стока са за сметка на клиента. (В случай на замяна на стока клиентът заплаща 2 куриерска такси за транспорт в двете посоки).<br>5. Доставки не се извършват в неделя и официални празници.<br>6. Възстановяването на сумата става по банков път на лична сметка на клиента, в рамките на 14 работни дни от получаването на върнатата стока, като се стараем този период да не надвишава една календарна седмица. <\/p>\n<meta charset=\"utf-8\">\n<p><span>    В случай, че клиентът се е възползвал от правото на безплатна доставка, но при връщане на продуктите, взетите<\/span><span> от него не отговарят на условието за такава, сумата за доставката ще бъде приспадната при банковия превод. <\/span><\/p>\n<p><span>Пример: Вие сте поръчали продукти на стойност 135лв. и Maxifashion.bg е изпратила пратката за своя сметка. След 2 дни решавате да върнете част от продуктите на стойност 35лв., и така Вашата дължима сума към Maxifashion.bg вече е 100лв., т.е. не попада в условията за безплатна доставка. В този случай Maxifashion.bg ще удържи сумата от 4.99лв.<\/span><\/p>\n<\/div>",
+        "display_custom_tab_4": false,
+        "custom_tab_title_4": "Custom Tab 4",
+        "custom_tab_content_4": "Custom Tab Content 4",
+        "display_custom_tab_5": false,
+        "custom_tab_title_5": "Custom Tab 5",
+        "custom_tab_content_5": "Custom Tab Content 5",
+        "dpl_lookbook_description": false,
+        "style_lookbook_description": "all_product",
+        "quote_title": "Sample Block Quote",
+        "quote_des": "Praesent vestibulum congue tellus at fringilla. Curabitur vitae semper sem, eu convallis est. Cras felis nunc commodo loremous convallis vitae interdum non nisl. Maecenas ac est sit amet augue pharetra convallis nec danos.",
+        "quote_title_2": "Sample Paragraph Text",
+        "quote_des_2": "<p>\nPraesent vestibulum congue tellus at fringilla. Curabitur vitae semper sem, eu convallis est. Cras felis nunc commodo eu convallis vitae interdum non nisl. Maecenas ac est sit amet augue pharetra convallis nec danos dui.\n<\/p>\n<p>\nCras suscipit quam et turpis eleifend vitae malesuada magna congue. Damus id ullamcorper neque. Sed vitae mi a mi pretium aliquet ac sed elitos. Pellentesque nulla eros accumsan quis justo at tincidunt lobortis denimes loremous. Suspendisse vestibulum lectus in lectus volutpat, ut dapibus purus pulvinar. Vestibulum sit amet auctor ipsum.\n<\/p>",
+        "dpl_gallery_lookbook": false,
+        "style_lookbook_gallery": "different_product",
+        "dpl_grouped_product": true,
+        "grouped_product_style": "style_1",
+        "grouped_title": "Frequently Bought Together",
+        "grouped_choose_options_text": "Please choose options for all selected products",
+        "choose_options": "Choose Options",
+        "enable_bundle_discount": true,
+        "bundle_discount_text": "Get a [discount]% discount buying these products together | Erhalten Sie einen Rabatt von [discount]%, wenn Sie diese Produkte zusammen kaufen"
+      }
+    },
+    "recently-view": {
+      "type": "recently-viewed-products",
+      "disabled": true,
+      "settings": {
+        "display_recently_viewed_products": true,
+        "recently_viewed_products_title": "Наскоро гледахте",
+        "number_of_recently_viewed_products": "8",
+        "recently_viewed_products_per_row": "4"
+      }
+    },
+    "1645286477f2bbd20e": {
+      "type": "newsletter-block",
+      "disabled": true,
+      "blocks": {
+        "1645286477535c9a55-0": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "banner_title": "Newsletter Sign Up",
+            "font_size_banner_title": "20px",
+            "color_banner_title": "#ffffff",
+            "banner_heading": "Receive our latest updates about our products and promotions.",
+            "font_size_banner_heading": "12px",
+            "color_banner_heading": "#ffffff",
+            "ft_input": "#ffffff",
+            "ft_input_br": "#ffffff",
+            "ft_input_text": "#5f5f5f",
+            "ft_submit": "#0f0f0f",
+            "ft_submit_br": "#0f0f0f",
+            "ft_submit_text": "#ffffff",
+            "ft_submit_hover": "#ffffff",
+            "ft_submit_br_hover": "#232323",
+            "ft_submit_text_hover": "#232323"
+          }
+        }
+      },
+      "block_order": [
+        "1645286477535c9a55-0"
+      ],
+      "settings": {
+        "display_block_newsletter": true,
+        "margin_bottom_mb": 0,
+        "margin_bottom_tab": 0,
+        "margin_bottom": 0
+      }
+    },
+    "16452865433a6f4a17": {
+      "type": "home-customer-reviews",
+      "disabled": true,
+      "blocks": {
+        "1645286543c50b70ef-0": {
+          "type": "Review",
+          "settings": {
+            "enable_image": true,
+            "reviews_heading": "Awesome...",
+            "rating": "star5",
+            "reviews_purchased_text": "Purchased:",
+            "reviews_title": "Title",
+            "reviews_link": "",
+            "body_review": "Nam tempus turpis at metus scelerisque placerat nulla deumantos delo sollicitudin delos felis. Pellentesque diam dolor an elementum et lobortis at mollis ut risus. Curabitur semper sagittis mi condimentum...",
+            "name": "Customer Name",
+            "date_review": "Wednesday, Jan 26, 2019"
+          }
+        },
+        "1645286543c50b70ef-1": {
+          "type": "Review",
+          "settings": {
+            "enable_image": true,
+            "reviews_heading": "Awesome...",
+            "rating": "star5",
+            "reviews_purchased_text": "Purchased:",
+            "reviews_title": "Title",
+            "reviews_link": "",
+            "body_review": "Nam tempus turpis at metus scelerisque placerat nulla deumantos delo sollicitudin delos felis. Pellentesque diam dolor an elementum et lobortis at mollis ut risus. Curabitur semper sagittis mi condimentum...",
+            "name": "Customer Name",
+            "date_review": "Wednesday, Jan 26, 2019"
+          }
+        },
+        "1645286543c50b70ef-2": {
+          "type": "Review",
+          "settings": {
+            "enable_image": true,
+            "reviews_heading": "Awesome...",
+            "rating": "star5",
+            "reviews_purchased_text": "Purchased:",
+            "reviews_title": "Title",
+            "reviews_link": "",
+            "body_review": "Nam tempus turpis at metus scelerisque placerat nulla deumantos delo sollicitudin delos felis. Pellentesque diam dolor an elementum et lobortis at mollis ut risus. Curabitur semper sagittis mi condimentum...",
+            "name": "Customer Name",
+            "date_review": "Wednesday, Jan 26, 2019"
+          }
+        }
+      },
+      "block_order": [
+        "1645286543c50b70ef-0",
+        "1645286543c50b70ef-1",
+        "1645286543c50b70ef-2"
+      ],
+      "settings": {
+        "space_on": 20,
+        "space_below": 25,
+        "bg_color": "#f7f9fb",
+        "layout_style": "style_1",
+        "title": "Customer Reviews",
+        "des": "",
+        "title_style": "style_1",
+        "per_row": "3"
+      }
+    },
+    "164528660180f8326f": {
+      "type": "line-block",
+      "disabled": true,
+      "settings": {
+      }
+    },
+    "164528664767881cb9": {
+      "type": "home-rich-text",
+      "disabled": true,
+      "settings": {
+        "heading": "",
+        "content_top": "",
+        "content_bottom": "",
+        "font_size": "14px",
+        "text_alignment": "center",
+        "button_text_more": "Read More",
+        "button_text_less": "Read Less",
+        "color_text": "",
+        "margin_bottom_mb": 50,
+        "margin_bottom_tab": 65,
+        "margin_bottom": 65
+      }
+    },
+    "16484642168f5f43c8": {
+      "type": "section-product-showcase",
+      "settings": {
+        "title": "Product Video",
+        "des": "Describe this section.",
+        "margin_bottom": 20,
+        "video_url": "https:\/\/cdn.shopify.com\/s\/files\/1\/1733\/9921\/files\/sample_2.mp4?v=1648194068",
+        "video_poster": "shopify:\/\/shop_images\/MaxiGR_Website_GetIt_Or_RegretIt_805f14a0-c8c8-47f4-8cce-9edb005b2d11.jpg",
+        "autoplay": true,
+        "controls": false,
+        "loop": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "recently-view",
+    "1645286477f2bbd20e",
+    "16452865433a6f4a17",
+    "164528660180f8326f",
+    "164528664767881cb9",
+    "16484642168f5f43c8"
+  ]
+}
