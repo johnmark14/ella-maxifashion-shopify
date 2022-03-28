@@ -1,18 +1,37 @@
 {% for block in section.blocks %}
     {% if block.type == 'sub-nav' %}
         <div class="container">
-        <div class="row">
-            <div class="col-12 p-0-sm">
-            <ul class="collection-sub-nav">
-                {%- assign linklists = linklists[block.settings.link_list].links -%}
-                {% for link in linklists %}
-                <li>
-                    <a href="{{ link.url }}">{{ link.title }}</a>
-                </li>
-                {% endfor %}
-            </ul>
+            <div class="row">
+                <div class="col-12 p-0-sm">
+                    <ul class="collection-sub-nav">
+                        {%- assign linklists = linklists[block.settings.link_list].links -%}
+                        {%- assign collection_title = collection.title | upcase -%}
+                        {% for link in linklists %}
+                            {%if link.current == true%}
+                                {% if link.levels == 0%} 
+                                    {% for up_link in linklists %}
+                                        <li><a href="{{up_link.url}}">{{up_link.title}}</a></li>
+                                    {% endfor%}
+                                    {%break%}
+                                {% else %}
+                                    {% for sub_link in link.links %}
+                                        <li><a href="{{sub_link.url}}">{{sub_link.title}}</a></li>
+                                    {%endfor%}
+                                    {%break%}
+                                {% endif %}
+                            {% else %}
+                                {% for sub_link in link.links %}
+                                    {% if sub_link.current == true %}
+                                        {% for super_sub_link in link.links%}
+                                            <li><a href="{{super_sub_link.url}}">{{super_sub_link.title}}</a></li>
+                                        {%endfor%}
+                                    {%endif%}
+                                {%endfor%}
+                            {%endif%}
+                        {% endfor %}
+                    </ul>
+                </div>
             </div>
-        </div>
         </div>
     {% endif %}
 <!-- output a header with text -->
