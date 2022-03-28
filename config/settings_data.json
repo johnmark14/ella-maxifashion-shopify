@@ -3214,6 +3214,7 @@
       },
       "164819767376aec1da": {
         "type": "section-product-showcase",
+        "disabled": true,
         "settings": {
           "title": "Product Video",
           "des": "Describe this section.",
