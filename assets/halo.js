@@ -1607,7 +1607,8 @@
 
         dropdownCustomer: function () {
             this.initDropdownCustomerTranslate($('[data-user-mobile-toggle]'), 'customer-show');
-            this.initDropdownCustomerTranslate($('.header-05 .customer-links'), 'customer-show');
+            // Edits by John : Remove this line of code to redirect link to account page
+            // this.initDropdownCustomerTranslate($('.header-05 .customer-links'), 'customer-show');
 
             if (window.innerWidth >= 1200) {
                 this.initDropdownCustomerTranslate($('[data-user-pc-translate]'), 'customer-show');
